@@ -1,3 +1,5 @@
+const mongoose = require("mongoose")
+const dotenv = require ("dotenv").config()
 const express = require ("express")
 const cors = require ("cors")
 const app = express();
@@ -8,4 +10,14 @@ app.use(
     })
 );
 
-app.listen(3000, () => console.log("Server is up and running.."));
+main().catch((err) => console.log(err));
+
+async function main() {
+    console.log("Connect to DB & start server");
+    mongoose.set("strictQuery", true);
+    await mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
+    app.listen(process.env.PORT || 3000, () =>
+      console.log("Server is running on http://localhost:3000")
+    );
+  }
+
