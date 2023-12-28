@@ -1,0 +1,33 @@
+const { model, Schema, models } = require("mongoose");
+const Joi = require("joi");
+
+const ProductSchema =new Schema(
+    {
+        title: { type:String, required:true },
+        description: { type: String, required: true },
+        price: { type: Number, required: true },
+        img: { type: String, required: true },
+        color: {type: String, required: true},
+        inStock: { type: Number, required: true, default:0 },
+        category: { 
+            type: [Schema.TypesObjectId],
+            ref: "category",
+            required: false,
+        },
+        deleated: { type: Boolean, required: false, default:false },
+    }, 
+    { versionKey: false });
+
+const ProductModel = models.product || model("product", ProductSchema); 
+
+const productJoiSchema = Joi.object({
+    title: Joi.string().required(),
+    description: Joi.string().required(),
+    price: Joi.number().required(),
+    img: Joi.string().required(),
+    color: Joi.string().required(),
+    inStock: Joi.number().required(),
+    category: Joi.array().items(Joi.string()).required()
+});
+
+module.exports = { ProductModel, productJoiSchema };
