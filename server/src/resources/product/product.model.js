@@ -9,16 +9,12 @@ const ProductSchema =new Schema(
         img: { type: String, required: true },
         color: {type: String, required: true},
         inStock: { type: Number, required: true, default:0 },
-        category: { 
-            type: [Schema.TypesObjectId],
-            ref: "category",
-            required: false,
-        },
+        category: { type: String, required: true,},
         deleated: { type: Boolean, required: false, default:false },
-    }, 
-    { versionKey: false });
+    }, { versionKey: false });
 
 const ProductModel = models.product || model("product", ProductSchema); 
+console.log("Product model:", ProductModel);
 
 const productJoiSchema = Joi.object({
     title: Joi.string().required(),
@@ -27,7 +23,7 @@ const productJoiSchema = Joi.object({
     img: Joi.string().required(),
     color: Joi.string().required(),
     inStock: Joi.number().required(),
-    category: Joi.array().items(Joi.string()).required()
+    category: Joi.string().uri().required()
 });
 
-module.exports = { ProductModel, productJoiSchema };
+module.exports = { ProductModel, ProductSchema, productJoiSchema };

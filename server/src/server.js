@@ -1,14 +1,8 @@
-const mongoose = require("mongoose")
-const dotenv = require ("dotenv").config()
-const express = require ("express")
-const cors = require ("cors")
-const app = express();
+const mongoose = require("mongoose");
+const dotenv = require ("dotenv").config();
+const { app } = require("./app");
 
-app.use(
-    cors({
-        origin: "*",
-    })
-);
+
 
 main().catch((err) => console.log(err));
 
