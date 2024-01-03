@@ -1,1 +1,59 @@
 GET http://localhost:3000/api/products 
+
+###
+
+GET http://localhost:3000/api/products/658d70c4fe602e2d5f914cb2
+
+###
+
+GET http://localhost:3000/api/products/ByCategory/Taklampor
+
+###
+
+GET http://localhost:3000/api/categories
+
+###
+
+DELETE  http://localhost:3000/api/products/658d70c4fe602e2d5f914cb1
+
+###
+
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+        "title": "Ellipse 65 ",
+        "price": "1998",
+        "color": "Vit",
+        "category": "Taklampor",
+        "description": "Lampskärmen från Watt & Veke har en klassisk design i linne med en mjuk, elliptisk form. Den har ett skönt ljus perfekt för vardagsrummet eller sovrummet. Takupphäng och ljuskälla säljes separat. Välj mellan olika färger.",
+        "inStock": 37,
+        "img": 
+            [
+                "https://royaldesign.se/image/1/watt-veke-ellipse-65-pendel-16?w=1080&quality=80",
+                "https://royaldesign.se/image/1/watt-veke-ellipse-65-pendel-18?w=1600&quality=80",
+                "https://royaldesign.se/image/1/watt-veke-ellipse-65-pendel-19?w=1600&quality=80",
+                "https://royaldesign.se/image/1/watt-veke-ellipse-65-pendel-17?w=1600&quality=80"
+            ]
+}
+
+###
+
+PUT  http://localhost:3000/api/products/658d70c4fe602e2d5f914cb2
+Content-Type: application/json
+
+{
+        "title": "Ellipse 65 ",
+        "price": "1998",
+        "color": "Vit/Svart",
+        "category": "Taklampor",
+        "description": "Lampskärmen från Watt & Veke har en klassisk design i linne med en mjuk, elliptisk form. Den har ett skönt ljus perfekt för vardagsrummet eller sovrummet. Takupphäng och ljuskälla säljes separat. Välj mellan olika färger.",
+        "inStock": 37,
+        "img": 
+            [
+                "https://royaldesign.se/image/1/watt-veke-ellipse-65-pendel-16?w=1080&quality=80",
+                "https://royaldesign.se/image/1/watt-veke-ellipse-65-pendel-18?w=1600&quality=80",
+                "https://royaldesign.se/image/1/watt-veke-ellipse-65-pendel-19?w=1600&quality=80",
+                "https://royaldesign.se/image/1/watt-veke-ellipse-65-pendel-17?w=1600&quality=80"
+            ]
+}
