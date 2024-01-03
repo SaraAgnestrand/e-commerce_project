@@ -1,4 +1,5 @@
 const { ProductModel } = require("./product.model");
+
 //getProducts
  const getProducts = async(req, res) => {
     console.log("Controller is hit!")
@@ -34,8 +35,6 @@ const getProductsByCategory = async (req, res) => {
     }
 }; 
 
-
-
 //deleteProduct
 const deleteProduct = async (req, res, next) => {
     try {
@@ -49,10 +48,6 @@ const deleteProduct = async (req, res, next) => {
         res.status(500).json();
     }
 }
-
-
-
-
 
 //createProduct
  const createProduct = async(req, res) => {

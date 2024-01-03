@@ -10,10 +10,6 @@ GET http://localhost:3000/api/products/ByCategory/Taklampor
 
 ###
 
-GET http://localhost:3000/api/categories
-
-###
-
 DELETE  http://localhost:3000/api/products/658d70c4fe602e2d5f914cb1
 
 ###
@@ -57,3 +53,13 @@ Content-Type: application/json
                 "https://royaldesign.se/image/1/watt-veke-ellipse-65-pendel-17?w=1600&quality=80"
             ]
 }
+
+###
+
+GET http://localhost:3000/api/categories
+
+###
+
+GET http://localhost:3000/api/categories/659404b0346e3f48fd885b6b
+
+###

@@ -1,15 +1,22 @@
 const { CategoryModel } = require("./category.model")
 //getCategories
 
-const getCategories = async () => {
+const getCategories = async (req, res) => {
     try {
         const categories = await CategoryModel.find();
-        console.log("Categories from controller:", categories);
-        return categories;
+        res.status(200).json(categories);
     } catch {
-        console.log("Error in controller:", error);
-        throw error;    
+        res.status(400).json(error);  
     }
 };
 
-module.exports = { getCategories };
+const getCategoryById = async(req, res, next) => {
+    try{
+        const category = await CategoryModel.findOne({_id:req.params.id});
+        res.status(200).json(category);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+};
+
+module.exports = { getCategories, getCategoryById };
