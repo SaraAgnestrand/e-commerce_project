@@ -1,8 +1,20 @@
-//import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from "./components/Navbar/Navbar";
+import Main from "./components/Main/Main";
+
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/*" element={<Main />} />
+        </Routes>
+        
+      </Router>
+
+    </div>
   )
 }
 
