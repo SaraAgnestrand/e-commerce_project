@@ -63,3 +63,34 @@ GET http://localhost:3000/api/categories
 GET http://localhost:3000/api/categories/659404b0346e3f48fd885b6b
 
 ###
+
+POST http://localhost:3000/api/users/register
+Content-Type: application/json
+
+{
+  "firstName": "Emma",
+  "lastName": "Andersson",
+  "email": "emma@mail.com",
+  "password": "121212"
+}
+
+###
+
+POST http://localhost:3000/api/users/loginUser
+Content-Type: application/json
+
+{
+  "email": "emma@mail.com",
+  "password": "121212"
+}
+
+###
+
+POST http://localhost:3000/api/users/logoutUser
+Content-Type: application/json
+
+{
+  "email": "emma@mail.com"
+}
+
+###

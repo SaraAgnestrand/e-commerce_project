@@ -9,16 +9,6 @@ productRouter.delete("/:id", deleteProduct);
 productRouter.post("", createProduct);
 // productRouter.put("/:id", updateProduct);
 
-// productRouter.get("", async (req, res) => {
-//     console.log("Route hit!");
-//     try {
-//         const products = await getProducts(req, res);
-//         res.status(200).json(products);
-//     } catch (error) {
-//         console.log("Error in router:", error);
-//         res.status(400).json(error);
-//     }
-// });
 
 module.exports = productRouter; 
 
