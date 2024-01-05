@@ -15,3 +15,6 @@ const Main: React.FC = () => {
 }
 
 export default Main;
+
+//Ska jag ha med en sida som hanterar 404?
+//<Route path="*" element={<NotFound />} />

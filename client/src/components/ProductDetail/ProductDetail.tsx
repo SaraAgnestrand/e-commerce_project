@@ -11,3 +11,12 @@ const ProductDetail = () => {
 }
 
 export default ProductDetail
+
+
+// import { useParams } from 'react-router-dom';
+
+// const ProductDetail = () => {
+//   const { id } = useParams();
+//   // Använd 'id' för att hämta eller visa produktinformation
+//   ...
+// }

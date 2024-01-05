@@ -6,6 +6,7 @@
     box-sizing: border-box;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
+    color:rgb(11 11 11);
 }
 
 a {
@@ -15,4 +16,4 @@ a {
 /* body {
     display: flex;
     flex-direction: column;
-  } */
+  }  */
