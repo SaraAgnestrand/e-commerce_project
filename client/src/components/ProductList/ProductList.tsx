@@ -2,7 +2,7 @@ import './ProductList.css'
 
 const ProductList = () => {
   return (
-    <div>ProductList</div>
+    <div className='ProductList-section'>ProductList</div>
   )
 }
 

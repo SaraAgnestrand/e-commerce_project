@@ -1,0 +1,10 @@
+.footer-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(239, 216, 188);
+    gap: 12rem;
+    height: 12rem;
+    
+
+}
