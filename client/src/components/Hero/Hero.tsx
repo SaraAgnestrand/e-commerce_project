@@ -3,7 +3,7 @@ import './Hero.css'
 const Hero = () => {
   return (
     <div className='hero-section'>
-      Hero
+      <img className="hero-img" src="https://www.norrmalmsel.se/pub_images/original/Gross_taklampa_klarglas_byrydens_m1_jpg.jpeg" />
     </div>
   )
 }

@@ -8,7 +8,7 @@
 
     position: sticky; 
     top: 0; 
-    /* z-index: 1000;  */
+    z-index: 1000; 
 }
 .logo {
     flex: 20%;
@@ -24,7 +24,7 @@
     flex: 60%;
     display: flex;
     margin-left: 6rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
     gap: 30px;
     font-weight: 500;
     font-size: 1.1rem;
@@ -34,7 +34,6 @@
 .nav-links a:hover {
     color: gray;
 }
-
 
 .icon-div {
     display: flex;
@@ -48,19 +47,23 @@
 .menu-icon {
     display: none; /* Gömd på större skärmar som standard */
     cursor: pointer;
-    font-size: 2rem; /* Justera storlek efter behov */
+    font-size: 2.2rem;
     color: rgb(11, 11, 11);
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1001; /* Se till att den ligger över andra element */
+    /* Ta bort position: absolute och andra positioneringsegenskaper */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1380px) {
+    .nav-links {
+        gap: 20px;
+
+    }
+}
+@media (max-width: 1080px) {
+ 
     .nav-links {
         position: absolute;
-        right: 0;
         top: 5rem;
+        right: 0;
         flex-direction: column;
         background-color: rgb(239, 216, 188);
         width: 100%;
@@ -73,27 +76,33 @@
     .nav-links a {
         text-align: center;
         padding: 10px;
+        display: block; /* Gör länkarna block-element så de tar upp hela bredden */
     }
 
     .nav-links.active {
         display: flex; /* Visa när menyikon är klickad */
     }
 
-    .menu-icon {
-        display: block;
-        cursor: pointer;
+    .icon-div {
+        display: flex; 
+        justify-content: flex-end; 
+        align-items: center; 
+        gap: 10px; 
         margin-right: 1rem;
-    }
-
-    .logo, .icon-div {
-        margin-left: 1rem;
-        margin-right: 1rem;
+        font-size: 2rem;
     }
 
     .menu-icon {
-        display: block; 
+        display: block; /* Visa menyikon på mindre skärmar */
+    }
+
+    .logo {
+        margin-left: 1remrem;
+        margin-right: 1rem; 
+        font-size: 2.2rem;
+    }
 }
-}
+
 
 
     
