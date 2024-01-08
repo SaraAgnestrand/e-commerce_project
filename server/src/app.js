@@ -4,6 +4,7 @@ const productRouter = require("./resources/product/product.router");
 const categoryRouter = require("./resources/category/category.router");
 const userRouter = require("./resources/user/user.router");
 const cors = require("cors");
+const path = require('path');
 
 const app = express();
 
@@ -36,6 +37,10 @@ app.use((err, req, res, next) => {
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/categories", categoryRouter);
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'index.html'));
+});
 
 
 module.exports = { app };

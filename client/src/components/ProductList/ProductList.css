@@ -1,4 +1,31 @@
-.ProductList-section {
+.productList-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.productList-div img {
+    width: 300px;
+      
+}
+
+.productList-grid {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+@media only screen and (min-width: 1500px) {
+    .productList-div {
+        margin: 0 10rem;
+    } 
+}
+/* .ProductList-section {
     background-color: beige;
     height: 80vh;
-}
+} */

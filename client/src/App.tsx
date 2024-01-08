@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from "./components/Navbar/Navbar";
+import { ProductProvider } from './context/ProductContext';
 import Main from "./components/Main/Main";
 
 
@@ -7,12 +8,14 @@ import Main from "./components/Main/Main";
 const App = () => {
   return (
     <div>
+
       <Router>
         <Navbar />
-        <Routes>
-          <Route path="/*" element={<Main />} />
-        </Routes>
-        
+        <ProductProvider>
+          <Routes>
+            <Route path="/*" element={<Main />} />
+          </Routes>
+        </ProductProvider>
       </Router>
 
     </div>
