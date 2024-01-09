@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { BsHandbag } from "react-icons/bs";
 import { GoPerson } from "react-icons/go";
 import { IoMenuOutline } from "react-icons/io5";
+
 import './Navbar.css'
 
 const Navbar = () => {
@@ -35,9 +36,12 @@ const Navbar = () => {
         <IoMenuOutline className="menu-icon" onClick={() => setIsOpen(!isOpen)} />
             
       </div>
-
+      
+      
+    </div>
     
-   </div>
+   
+   
   )
 }
 

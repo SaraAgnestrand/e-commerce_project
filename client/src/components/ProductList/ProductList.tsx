@@ -9,33 +9,34 @@ import './ProductList.css'
 
 const ProductList = () => {
   const { products } = useContext(ProductContext);
-  const [currentPage, setCurrentPage] = useState(1); // Håller reda på nuvarande sida
-  const productsPerPage = 12; // Antal produkter per sida
+  const [currentPage, setCurrentPage] = useState(1); 
+  const productsPerPage = 12; 
 
-    // Beräkna index för de produkter som ska visas
-    const indexOfLastProduct = currentPage * productsPerPage; // Index för sista produkten på nuvarande sida
-    const indexOfFirstProduct = indexOfLastProduct - productsPerPage; // Index för första produkten på nuvarande sida
-    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct); // Hämta produkterna för nuvarande sida
+    const indexOfLastProduct = currentPage * productsPerPage;  
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage; 
+    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct); 
   
-  console.log("Context Products:", products); // Loggar produkterna från Context
+  console.log("Context Products:", products); 
 
-  // Funktion för att ladda fler produkter (nästa sida)
+ 
   const loadMoreProducts = () => {
-    setCurrentPage(prevPage => prevPage + 1); // Uppdaterar nuvarande sida till nästa sida
+    setCurrentPage(prevPage => prevPage + 1); 
   };
   return (
     <div className='ProductList-section'>
         <div className='productList-grid'>
         {currentProducts.map((product) => (
-          // Renderar varje produktkort för de produkter som finns på nuvarande sida
+          
           <ProductCard key={product._id} products={product} />
         ))}
-      </div>
-      {indexOfLastProduct < products.length && (
-        // Visar "Load More"-knappen om det finns fler produkter att ladda
-        <button onClick={loadMoreProducts}>Load More</button>
-      )}
-    </div>
+          </div>
+    {indexOfLastProduct < products.length && (
+        <div className='load-more-container'>
+            <button onClick={loadMoreProducts}>Load More</button>
+        </div>
+    )}
+</div>
+
   )
 }
 

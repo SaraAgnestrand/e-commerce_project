@@ -6,24 +6,20 @@ export interface ProductCardProps {
     products: Product;
 }
 
-function ProductCard ({products}: ProductCardProps){
-  console.log("Product Card:", products); // Loggar produkten för varje kort
-    return (
-    <div className="productCard-div">
-        <Link to={"/" + products._id}>
-        <div className="productCard-link" >
-          {/* <img src={products.img} alt={products.title} /> */}
+function ProductCard({ products }: ProductCardProps) {
+  return (
+    <Link to={`/${products._id}`} style={{ textDecoration: 'none' }}>
+      <div className="productCard-div">
           <div className="productCard-info">
-            <h3>{products.title}</h3>
+              <img src={products.img} alt={products.title} />
+              <div className="productCard-text">
+                  <h3>{products.title}</h3>
+                  <p>{products.color}</p>
+                  <p className="price">{products.price} SEK</p>
+              </div>
           </div>
-
-        </div>
-      </Link>
-      <div className="productCard-price">
-        <p>{products.price} SEK</p>
-        <button></button>
       </div>
-    </div>
+    </Link>
   )
 }
 

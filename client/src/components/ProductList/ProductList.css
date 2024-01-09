@@ -1,31 +1,37 @@
-.productList-div {
+.ProductList-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-.productList-div img {
-    width: 300px;
-      
+    /* justify-content: center;  */
+    align-items: center; /* Säkerställer vertikal linjering vid start */
+    padding: 4rem; 
 }
 
 .productList-grid {
-    width: 100%;
+    flex: 70%;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
     gap: 3rem;
+    justify-content: center; 
+    align-items: flex-start;  
+    max-width: 80%; /* Maxbredd för att kontrollera gridens storlek */
+    margin: auto;
 }
 
-@media only screen and (min-width: 1500px) {
-    .productList-div {
-        margin: 0 10rem;
-    } 
+.productCard-div {
+    flex: 0 0 calc(33.333% - 3rem);
+    margin-bottom: 3rem; 
 }
-/* .ProductList-section {
-    background-color: beige;
-    height: 80vh;
-} */
+
+/* Responsiv design för mindre skärmar */
+@media only screen and (max-width: 1024px) {
+    .productCard-div {
+        flex: 0 0 calc(50% - 3rem); /* 2 produkter per rad på mindre skärmar */
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .productCard-div {
+        flex: 0 0 100%; /* 1 produkt per rad på mycket små skärmar */
+    }
+}
+
