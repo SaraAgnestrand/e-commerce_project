@@ -1,8 +1,7 @@
-.productCard-div {
+.productCard-info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* gap: 1rem; */
     margin-bottom: 2rem;
     border: 0.5px solid #ddd;
     padding: 1.5rem; 
@@ -12,17 +11,8 @@
     box-shadow: 0 2px 4px rgba(3, 3, 3, 0.1); 
     background-color: #fff;
     cursor: pointer;
-}
-
-.productCard-info {
     text-align: center; 
-    width: 100%; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    align-items: center;
-    height: 100%; /* Lägg till denna rad */
-
+    justify-content: space-between;
 }
 
 .productCard-info img {

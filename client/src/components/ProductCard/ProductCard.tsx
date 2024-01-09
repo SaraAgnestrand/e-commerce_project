@@ -8,8 +8,7 @@ export interface ProductCardProps {
 
 function ProductCard({ products }: ProductCardProps) {
   return (
-    <Link to={`/${products._id}`} style={{ textDecoration: 'none' }}>
-      <div className="productCard-div">
+    //<Link to={`/${products._id}`} style={{ textDecoration: 'none' }}>
           <div className="productCard-info">
               <img src={products.img} alt={products.title} />
               <div className="productCard-text">
@@ -17,9 +16,8 @@ function ProductCard({ products }: ProductCardProps) {
                   <p>{products.color}</p>
                   <p className="price">{products.price} SEK</p>
               </div>
-          </div>
       </div>
-    </Link>
+     //</Link>
   )
 }
 
