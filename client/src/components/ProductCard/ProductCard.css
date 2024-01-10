@@ -1,3 +1,5 @@
+
+
 .productCard-info {
     display: flex;
     flex-direction: column;
@@ -16,12 +18,16 @@
 }
 
 .productCard-info img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: 100%; 
-    max-height: 200px; 
+    max-height: 200px;
     width: auto; 
     height: auto; 
     object-fit: cover;
     margin: 1rem 0 1rem 0; 
+    /* position: relative; */
 }
 
 .productCard-text {
@@ -43,5 +49,7 @@
 .price {
     font-size: 20px;
 }
+
+
 
 

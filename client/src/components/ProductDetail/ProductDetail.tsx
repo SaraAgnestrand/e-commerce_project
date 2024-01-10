@@ -25,16 +25,27 @@ const ProductDetail = () => {
     }
     getProducts();
 
-  }, []);
+  }, [id]);
   return (
-    <div>
+    <div className="productDetail-content">
         <div className="productDetail-section">
         {product && (
-          <div className="img-container">
-          <img src={product.img} alt={product.title} />
-          </div>
+              <>
+              <div className="img-container">
+                <img src={product.img} alt={product.title} />
+              </div>
+              <div className="product-info">
+                <h3>{product.title}</h3>
+                <p className='product-color'>Färg: {product.color}</p>
+                <p>{product.description}</p>
+                <p className='product-price'>{product.price} SEK</p>
+                <button className="buy-button">Lägg i varukorg</button>
+              </div>
+            </>
           )}
+          
         </div>
+        
         <Footer />
     </div>
   )

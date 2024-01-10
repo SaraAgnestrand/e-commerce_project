@@ -4,9 +4,6 @@ import { ProductContext } from "../../context/ProductContext"
 import './ProductList.css'
 
 
-
-  
-
 const ProductList = () => {
   const { products } = useContext(ProductContext);
   const [currentPage, setCurrentPage] = useState(1); 

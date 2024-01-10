@@ -1,5 +1,5 @@
 import { Product } from "../../context/ProductContext"
-import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "./ProductCard.css"
 
 export interface ProductCardProps {
@@ -7,9 +7,14 @@ export interface ProductCardProps {
 }
 
 function ProductCard({ products }: ProductCardProps) {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(`/${products._id}`); // antar att varje produkt har ett unikt 'id'
+  };
   return (
-    //<Link to={`/${products._id}`} style={{ textDecoration: 'none' }}>
-          <div className="productCard-info">
+    
+          <div className="productCard-info" onClick={handleNavigate}>
               <img src={products.img} alt={products.title} />
               <div className="productCard-text">
                   <h3>{products.title}</h3>
@@ -17,7 +22,7 @@ function ProductCard({ products }: ProductCardProps) {
                   <p className="price">{products.price} SEK</p>
               </div>
       </div>
-     //</Link>
+     
   )
 }
 
