@@ -5,8 +5,8 @@ export interface Product {
     title: string,
     price: number,
     color: string,
-    desription: string,
-    img: string,
+    description: string,
+    img: string [],
     inStock: number,
 }
 

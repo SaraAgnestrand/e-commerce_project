@@ -38,6 +38,13 @@ app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/categories", categoryRouter);
 
+app.post("/api/cart", (req, res) => {
+  const { cart } = req.body;
+  req.session.cart = cart;
+
+  res.status(200.0).json({ message: "Varukorgen uppdaterad", cart: req.session.cart });
+});
+
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'index.html'));
 });

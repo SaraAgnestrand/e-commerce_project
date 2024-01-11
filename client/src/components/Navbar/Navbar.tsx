@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { BsHandbag } from "react-icons/bs";
 import { GoPerson } from "react-icons/go";
 import { IoMenuOutline } from "react-icons/io5";
+// import CartDrawer from '../../components/CartDrawer'; 
+import { ShoppingOutlined, UserOutlined, MenuOutlined } from "@ant-design/icons";
 
 import './Navbar.css'
 
@@ -31,9 +33,12 @@ const Navbar = () => {
 
       </div>
       <div className="icon-div">
-        <GoPerson />
-        <BsHandbag /> 
-        <IoMenuOutline className="menu-icon" onClick={() => setIsOpen(!isOpen)} />
+        <UserOutlined />
+        {/* <CartDrawer /> */}
+        <ShoppingOutlined /> 
+        <MenuOutlined className="menu-icon" onClick={() => setIsOpen
+          (!isOpen)} />
+          
             
       </div>
       

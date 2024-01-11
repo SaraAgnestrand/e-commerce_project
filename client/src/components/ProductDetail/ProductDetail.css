@@ -1,39 +1,46 @@
+.productDetail-content {
+   
+}
+
 .productDetail-section {
     display: flex;
     justify-content: center; 
     align-items: center;
-    width: 60%; /* Tar upp 60% av bredden */
+    width: 80%; /* Tar upp 60% av bredden */
     height: 80vh; /* Justera efter behov */
     margin: auto; /* Centrerar sektionen */
     background: #fff; /* Bakgrundsfärg, justera efter behov */
-     /* Lite skugga för effekt, justera efter behov */
-}
-
-.img-container {
-    flex: 1; /* Tar upp hälften av bredden i productDetail-section */
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    overflow: hidden; 
     
 }
 
+/* .img-container {
+    position: relative;
+    background-color: blue;
+    flex: 1; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    overflow: hidden; 
+    
+}
+  
 .img-container img {
     max-height: 30%; 
     max-width: 30%; 
     object-fit: contain; 
-    /* border: 0.5px solid #ddd;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+} */
+.img-container{
+    flex: 1;
 }
-
 .product-info {
+    
     flex: 1; /* Tar upp andra hälften av bredden */
     display: flex;
     flex-direction: column;
     align-items: start; 
     padding: 20px; 
     gap: 10px; 
-    margin-left: 5rem;
+    margin-left: 3rem;
 }
 
 .product-info h3 {
@@ -52,7 +59,7 @@
 
 /* Stil för köpknappen */
 .buy-button {
-    background-color: rgb(93, 91, 91); /* Blå färg, justera efter behov */
+    background-color: rgb(93, 91, 91); 
     color: white;
     padding: 8px 16px;
     border: none;
@@ -62,46 +69,13 @@
 }
 
 .buy-button:hover {
-    background-color: rgb(143, 137, 137); /* Mörkare blå vid hover, justera efter behov */
+    background-color: rgb(143, 137, 137); 
 }
 
-
-
-/* .productDetail-content {
-    margin-right: 15%;
-}
-.productDetail-section {
-  
-
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    height: 80vh;
-    width: 80vw;
-    flex-grow: initial;
-    
-}
-
-.img-container {
-  
-    flex: 2;
-    height: rem;
-    width: 70rem;
-    border: 0.5px solid #ddd;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    overflow: hidden; 
-}
-
-.img-container img {
-    
-    max-height: 100%; 
-    max-width: 100%; 
-    object-fit: contain; 
-}
-.product-info {
-   
-    flex: 1;
-    z-index: 2000;
+/* @media (max-width: 768px) {
+    .img-container img {
+        max-height: 50%;
+        max-width: 50%;
+    }
 } */
+

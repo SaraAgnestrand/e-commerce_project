@@ -37,9 +37,8 @@
 
 .icon-div {
     display: flex;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     cursor: pointer;
-    font-size: 2rem;
     gap: 20px;
     margin-right: 4rem;
     columns: #252424;
@@ -48,7 +47,7 @@
 .menu-icon {
     display: none; 
     cursor: pointer;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     color: #252424;
     
 }
