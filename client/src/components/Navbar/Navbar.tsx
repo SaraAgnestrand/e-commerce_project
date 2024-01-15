@@ -33,11 +33,12 @@ const Navbar = () => {
 
       </div>
       <div className="icon-div">
+        <MenuOutlined className="menu-icon" onClick={() => setIsOpen
+            (!isOpen)} />
         <UserOutlined />
         {/* <CartDrawer /> */}
         <ShoppingOutlined /> 
-        <MenuOutlined className="menu-icon" onClick={() => setIsOpen
-          (!isOpen)} />
+       
           
             
       </div>

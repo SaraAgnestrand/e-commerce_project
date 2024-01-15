@@ -15,11 +15,15 @@ const ImgSlider: React.FC<ImgSliderProps> = ({ img }) => {
   const canScrollRight = currentImageIndex < img.length - 1;
 
   const scroll = (direction: 'left' | 'right') => {
+    console.log("Scroll-funktionen anropas med riktning: ", direction);
     let newIndex = currentImageIndex;
+    
+    console.log("Före scroll: ", currentImageIndex);
     if (direction === 'left' && canScrollLeft) {
-      newIndex = currentImageIndex - 1;
+        newIndex = currentImageIndex - 1;
+        console.log("Kan skrolla vänster: ", canScrollLeft);
     } else if (direction === 'right' && canScrollRight) {
-      newIndex = currentImageIndex + 1;
+        newIndex = currentImageIndex + 1;
     }
     setCurrentImageIndex(newIndex);
     console.log("Nytt index efter scroll: ", newIndex); // Logga uppdaterat index

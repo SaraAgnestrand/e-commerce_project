@@ -55,7 +55,7 @@
 .dots-container {
   text-align: center;
   position: absolute;
-  bottom: 10px; 
+  bottom: -170px; 
   left: 50%;
   transform: translateX(-50%); 
   width: 100%;

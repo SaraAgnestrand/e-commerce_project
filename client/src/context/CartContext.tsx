@@ -1,153 +1,96 @@
-import { PropsWithChildren, createContext, useState } from "react";
-import { Product } from "./ProductContext";
+import React, { createContext, useContext, useState, PropsWithChildren } from "react";
+import Cookies from "js-cookie";
+import { Product } from "./ProductContext"; 
 
-
-export interface CartItem extends Product {
-    quantity: number;
-  }
+// Definierar en utvidgning av Product-typen för att inkludera kvantitetexport 
+interface CartItem extends Product {
+  quantity: number;
+}
 
 export interface Cart {
-    cart: CartItem[],
-    totalPrice: number,
-    totalQuantity: number
-  }
-
-// Skapar en interface för CartContext för att definiera dess struktur.
-interface CartContext {
-  currentCart: Cart,
-  setCurrentCart: (value: Cart) => void,
-  addToCart: (productId: string, quantity: number) => void,
-  removeFromCart: (productId: string) => void,
-  decreaseQuantity: (productId: string) => void
+  items: CartItem[];
+  addToCart: (productId: string, quantity: number) => void;
 }
 
 
-export const CartContext = createContext<CartContext>({
-  currentCart: { cart: [], totalPrice: 0, totalQuantity: 0 }, // Initiala värden för varukorgen
-  setCurrentCart: () => {}, 
-  addToCart: () => {}, 
-  removeFromCart: () => {}, 
-  decreaseQuantity: () => {} 
-});
+export const CartContext = createContext<Cart | undefined>(undefined);
 
+export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
+  const [items, setItems] = useState<CartItem[]>(() => {
+    const cartCookie = Cookies.get('cart');
 
-export function CartProvider({ children }: PropsWithChildren<any>) {
-  
-  const [currentCart, setCurrentCart] = useState<Cart>({
-    cart: [],
-    totalPrice: 0,
-    totalQuantity: 0,
+    console.log("Cart Cookie value:", cartCookie); // Loggar värdet av 'cart' cookien
+
+    if (cartCookie) {
+      try {
+        return JSON.parse(cartCookie); // Försöker tolka 'cartCookie' som JSON
+      } catch (error) {
+        console.error("Error parsing cart cookie as JSON:", error); // Loggar fel vid misslyckad JSON-parsning
+        return []; // Returnerar en tom lista vid fel
+      }
+    } else {
+      return []; // Returnerar en tom lista om 'cartCookie' är undefined
+    }
   });
 
-  const addToCart = async (productId: string, quantity: number) => {
+  const updateCartItems = (newItems: CartItem[]) => {
+    setItems(newItems);
+    Cookies.set('cart', JSON.stringify(newItems), { sameSite: 'strict'});
+  };
+
+  const fetchProduct = async (productId: string) => {
     try {
-      // Först hämta produktdetaljerna från servern
       const response = await fetch(`http://localhost:3000/api/products/${productId}`);
-  
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
-  
-      const productToAdd = await response.json();
-      productToAdd.price = parseFloat(productToAdd.price);
-  
-      // Kolla om produkten redan finns i varukorgen
-      const cartItem = currentCart.cart.find(item => item._id === productId);
-      if (cartItem) {
-        // Om produkten finns, öka bara kvantiteten
-        cartItem.quantity += quantity;
-      } else {
-        // Om produkten inte finns, lägg till den i varukorgen med angiven kvantitet
-        currentCart.cart.push({ ...productToAdd, quantity });
-      }
-
-      // Uppdatera varukorgen
-      updateCart();
-
-      // Skicka uppdaterad varukorg till servern för att hantera sessionsdata
-      try {
-        await fetch("http://localhost:3000/api/cart", {
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ cart: currentCart }),
-        });
-      } catch (error) {
-        console.error('Error updating cart session:', error);
-      }
+      return await response.json();
     } catch (error) {
-      console.error('Error adding product to cart:', error);
+      console.error("Fetch Error:", error);
+      return null;
     }
   };
-    // const addToCart = async (productId: string, quantity: number) => { 
-    //   try {
-    //     const response = await fetch(`http://localhost:3000/api/products/${productId}`);
-    
-    //     if (!response.ok) {
-    //       throw new Error(`Error: ${response.status}`);
-    //     }
-    
-    //     const productToAdd = await response.json(); 
-    //     productToAdd.price = parseFloat(productToAdd.price);
-    
-    //     const cartItem = currentCart.cart.find(item => item._id === productId);
-    //     if (cartItem) {
-    //       cartItem.quantity += quantity;
-    //     } else {
-          
-    //       currentCart.cart.push({ ...productToAdd, quantity });
-    //     }
-    //     updateCart();
-    //   } catch (error) {
-    //     console.error('Error adding product to cart:', error);
-    //   }
-    // };
-  
-  
-    
-    const updateCart = () => {
-      let totalQuantity = 0;
-      let totalPrice = 0;
-      currentCart.cart.forEach(item => {
-        totalQuantity += item.quantity;
-        totalPrice += item.quantity * item.price; // Antag att 'price' är ett nummer
-      });
-      setCurrentCart({ cart: [...currentCart.cart], totalQuantity, totalPrice });
-    };
-    const removeFromCart = (productId: string) => {
-      const updatedCartItems = currentCart.cart.filter(item => item._id !== productId);
-      refresh(updatedCartItems); 
-    };
-    
-    const decreaseQuantity = (productId: string) => {
-      const updatedCartItems = currentCart.cart.map(item => {
-        if (item._id === productId && item.quantity > 1) {
-          return { ...item, quantity: item.quantity - 1 };
-        }
-        return item;
-      });
-      refresh(updatedCartItems); 
-    };
-    
-    const refresh = (updatedCartItems: CartItem[]) => {
-      let totalQuantity = 0;
-      let totalPrice = 0;
-    
-      updatedCartItems.forEach(item => {
-        totalQuantity += item.quantity;
-        totalPrice += item.quantity * item.price;
-      });
-    
-      
-      setCurrentCart({ cart: updatedCartItems, totalQuantity, totalPrice });
-    };
-    
-    return (
-      <CartContext.Provider value={{ currentCart, setCurrentCart, addToCart, removeFromCart, decreaseQuantity }}>
-        {children}
-      </CartContext.Provider>
-    );
-}
+// Definierar en asynkron funktion 'addToCart' för att lägga till produkter i varukorgen
+const addToCart = async (productId: string, quantity: number) => {
+  // Anropar 'fetchProduct' för att hämta detaljer om den önskade produkten med hjälp av dess ID
+  const product = await fetchProduct(productId);
+
+  // Kontrollerar om produktinformationen hämtades framgångsrikt
+  if (product) {
+    // Söker igenom den nuvarande varukorgslistan för att se om produkten redan finns
+    const existingItemIndex = items.findIndex(item => item._id === productId);
+    // Kontrollerar om produkten redan finns i varukorgen
+    if (existingItemIndex > -1) {
+      // Uppdaterar kvantiteten för befintlig produkt i varukorgen
+      const updatedItems = items.map((item, index) => 
+        index === existingItemIndex ? { ...item, quantity: item.quantity + quantity } : item
+      );
+      // Anropar 'updateCartItems' för att uppdatera varukorgslistan och spara i cookies
+      updateCartItems(updatedItems);
+      console.log("Varukorg uppdaterad:", items);
+    } else {
+      console.log("Produkten kunde inte hämtas.");
+      // Lägger till en ny produkt i varukorgen om den inte redan finns
+      const newCartItem = { ...product, quantity };
+      const updatedItems = [...items, newCartItem];
+      // Anropar 'updateCartItems' för att lägga till den nya produkten och spara i cookies
+      updateCartItems(updatedItems);
+    }
+  } else {
+    // Skriver ut ett felmeddelande om produkten inte kunde hämtas
+    console.log("Produkten kunde inte hämtas.");
+  }
+};
+
+// Returnerar CartContext.Provider för att göra varukorgsdata och 'addToCart'-funktionen tillgänglig
+// för alla barnkomponenter inom denna kontext
+return (
+  <CartContext.Provider value={{ items, addToCart }}>
+    {children}
+  </CartContext.Provider>
+);
+};
+
+export default CartProvider;
 
  

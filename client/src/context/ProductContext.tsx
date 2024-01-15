@@ -27,7 +27,7 @@ export function ProductProvider ({ children }: PropsWithChildren) {
             );
 
             const productData = await res.json();
-            console.log("API Products:", productData); // Loggar produkterna från API
+            console.log("API Products:", productData); 
             setProducts(productData);
         } catch (error){
             console.log("API Error:", error);
