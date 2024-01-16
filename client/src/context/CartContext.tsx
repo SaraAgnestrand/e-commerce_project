@@ -7,6 +7,7 @@ interface CartItem extends Product {
   quantity: number;
 }
 
+
 export interface Cart {
   items: CartItem[];
   addToCart: (productId: string, quantity: number) => void;
@@ -54,7 +55,7 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
     }
 
   };
-// Definierar en asynkron funktion 'addToCart' för att lägga till produkter i varukorgen
+// Asynkron funktion 'addToCart' lägger till produkter i varukorgen
 const addToCart = async (productId: string, quantity: number) => {
   // Anropar 'fetchProduct' för att hämta detaljer om den önskade produkten med hjälp av dess ID
   const product = await fetchProduct(productId);
@@ -81,7 +82,6 @@ const addToCart = async (productId: string, quantity: number) => {
       updateCartItems(updatedItems);
     }
   } else {
-    // Skriver ut ett felmeddelande om produkten inte kunde hämtas
     console.log("Produkten kunde inte hämtas.");
   }
 };
