@@ -18,10 +18,6 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ open, onClose }) => {
     return null;
   }
 
-  useEffect(() => {
-    console.log("Open state is now: ", open)
-}, [open]);
-
   const { items } = cartContext;
 
   // Funktion för att beräkna totalbeloppet

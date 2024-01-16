@@ -9,8 +9,14 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   
-  const { items } = useContext(CartContext);
+  const cartContext = useContext(CartContext);
   
+  if (!cartContext) {
+    return null;
+  }
+
+  const { items } = cartContext;
+
   const showCartDrawer = () => {
     setIsCartOpen(true);
   };  
@@ -44,42 +50,7 @@ const Navbar = () => {
     </div>
   </div>
 );
-  //  <div className="navbar-section">
-  //     <h2 className="logo">LightGallery</h2>
-  //     <div className="nav-links">
-  //       <Link to="/">
-  //         Hem
-  //       </Link>
-  //       <Link to="/">
-  //         Taklampor
-  //       </Link>
-  //       <Link to="/productdetail">
-  //         Golvlampor
-  //       </Link>
-  //       <Link to="/">
-  //         Vägglampor
-  //       </Link>
-  //       <Link to="/">
-  //         Bordslampor
-  //       </Link>
 
-  //     </div>
-  //     <div className="icon-div">
-  //       <MenuOutlined className="menu-icon" onClick={() => setIsOpen
-  //           (!isOpen)} />
-  //       <UserOutlined />
-  //       <ShoppingOutlined onClick={showCartDrawer} /> 
-  //       <CartDrawer open={isCartOpen} onClose={closeCartDrawer} />
-          
-            
-  //     </div>
-      
-      
-  //   </div>
-    
-   
-   
-  // )
 }
 
 export default Navbar;

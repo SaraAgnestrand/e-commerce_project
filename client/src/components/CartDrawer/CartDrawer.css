@@ -63,7 +63,7 @@
 .delete-icon {
     cursor: pointer;
     color: rgb(197, 102, 102); /* Eller den färg du föredrar */
-    // Lägg till ytterligare stilar vid behov
+    /* // Lägg till ytterligare stilar vid behov */
   }
 
   .totalCalc h3{
