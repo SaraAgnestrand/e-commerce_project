@@ -1,7 +1,9 @@
 .cartItem-div {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex: 1;
+    flex-direction: row;
+    /* justify-content: space-between;
+    flex-wrap: wrap; */
     /* background-color: aqua; */
     margin-bottom: 2rem;
     line-height: 1.8rem;
@@ -9,31 +11,32 @@
     
 }
 
-.imgDiv img{
-    flex: 1;
+.cartItem-div img {
+    display: flex;
+    justify-content: center;
+    align-self: center;
     width: 5rem;
     height: auto;
+    
 }
-
 
 .titleAndPrice {
     flex: 1;
-    margin-left: 6rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
 }
-
 
 .productTitle {
     flex-wrap: wrap;
     font-weight: 400;
     font-size: medium;
-   
 }
 
 .quantity-control {
     display: flex;
     align-items: center;
     justify-content: start;
-    
   }
   
   .circle-button {
@@ -69,5 +72,15 @@
   .totalCalc h3{
     font-weight: 500;
     color:#252424;
+}
 
+.totalCalc button {
+  background-color: rgb(93, 91, 91); 
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1.8rem;
 }

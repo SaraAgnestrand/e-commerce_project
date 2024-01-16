@@ -41,13 +41,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 0.1rem;
     position: absolute;
+    color: rgb(51, 49, 49);
 }
  
 .arrows {
     font-size: 2rem;
     cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5); /* Vit halvgenomskinlig bakgrund */
+    border-radius: 50%; /* Gör bakgrunden cirkulär */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px; /* Eller den storlek som passar för dina ikoner */
+    height: 38px;
+    transition: background-color 0.3s ease;
+}
+.arrows:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Gör bakgrunden mer synlig vid hovring */
 }
 
 .product-info {
@@ -97,6 +109,7 @@
         max-width: 50%;
     }
 }
+
 
 
 

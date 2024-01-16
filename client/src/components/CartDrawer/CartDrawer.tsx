@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { Drawer } from 'antd';
 import { DeleteOutlined } from "@ant-design/icons";
@@ -27,10 +27,17 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ open, onClose }) => {
 
 
   return (
-    <Drawer title="Din Varukorg" onClose={onClose} open={open}>
+    <Drawer title="Varukorg:" onClose={onClose} open={open}>
+       {items.length === 0 ? (
+        <div className="empty-cart-message">
+          Din varukorg är tom.
+        </div>
+      ) : 
+      <>
       {items.map(item => (
         <div className="cartItem-div" key={item._id}>
-          <div className="imgDiv"><img src={item.img[0]} alt={item.title} /></div>
+          {/* <div className="imgDiv"></div> */}
+          <img src={item.img[0]} alt={item.title} />
           <div className='titleAndPrice'>
             <h3 className='productTitle'>{item.title}</h3>
             <div className='quantity-control'>
@@ -48,9 +55,11 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ open, onClose }) => {
       ))}
       <div className="totalCalc">
       <h3>Totalt pris: {calculateTotal()} SEK</h3>
+      <button>Gå till kassa</button>
     </div>
+    </>}
     </Drawer>
-  );
+    );
 };
 
 export default CartDrawer;

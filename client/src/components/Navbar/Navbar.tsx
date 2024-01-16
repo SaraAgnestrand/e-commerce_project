@@ -3,6 +3,7 @@ import { useState, useContext } from 'react';
 import CartDrawer from "../CartDrawer/CartDrawer"
 import { ShoppingOutlined, UserOutlined, MenuOutlined } from "@ant-design/icons";
 import { CartContext } from '../../context/CartContext';
+import Banner from '../Banner/Banner'
 import './Navbar.css'
 
 const Navbar = () => {
@@ -28,29 +29,33 @@ const Navbar = () => {
   const totalItemsInCart = items.reduce((total, item) => total + item.quantity, 0);
   
   return (
-    <div className="navbar-section">
-    <h2 className="logo">LightGallery</h2>
-    <div className="nav-links">
-      <Link to="/">Hem</Link>
-      <Link to="/">Taklampor</Link>
-      <Link to="/productdetail">Golvlampor</Link>
-      <Link to="/">Vägglampor</Link>
-      <Link to="/">Bordslampor</Link>
-    </div>
-    <div className="icon-div">
-      <MenuOutlined className="menu-icon" onClick={() => setIsOpen(!isOpen)} />
-      <UserOutlined />
-      <div className="cart-icon-container">
-        <ShoppingOutlined onClick={showCartDrawer} />
-        {totalItemsInCart > 0 && (
-          <span className="cart-badge">{totalItemsInCart}</span>
-        )}
-      </div>
-      <CartDrawer open={isCartOpen} onClose={closeCartDrawer} />
-    </div>
-  </div>
-);
 
+    <div className="navbar-section">
+      <div className="top-row">
+        <h2 className="logo">LightGallery</h2>
+        <div className="nav-links">
+          <Link to="/">Hem</Link>
+          <Link to="/">Taklampor</Link>
+          <Link to="/productdetail">Golvlampor</Link>
+          <Link to="/">Vägglampor</Link>
+          <Link to="/">Bordslampor</Link>
+        </div>
+        <div className="icon-div">
+          <MenuOutlined className="menu-icon" onClick={() => setIsOpen(!isOpen)} />
+          <UserOutlined className='user-icon' />
+          <div className="cart-icon-container">
+            <ShoppingOutlined className="cart-icon" onClick={showCartDrawer} />
+            {totalItemsInCart > 0 && (
+              <span className="cart-badge">{totalItemsInCart}</span>
+            )}
+          </div>
+          <CartDrawer open={isCartOpen} onClose={closeCartDrawer} />
+        </div>
+      </div>
+      <Banner /> {/* Banner längst ner inom .navbar-section */}
+    </div>
+  );
 }
+
 
 export default Navbar;

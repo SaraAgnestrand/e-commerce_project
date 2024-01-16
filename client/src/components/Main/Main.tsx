@@ -9,12 +9,10 @@ const Main: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:id" element={<ProductDetail/>}/>
+       
       </Routes>
     </div>
   )
 }
 
 export default Main;
-
-//Ska jag ha med en sida som hanterar 404?
-//<Route path="*" element={<NotFound />} />
