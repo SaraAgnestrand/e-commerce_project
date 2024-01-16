@@ -1,41 +1,66 @@
-import { useState, useContext } from "react";
-import { Drawer, Button } from "antd";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import React, { useContext, useEffect } from 'react';
 import { CartContext } from '../../context/CartContext';
-import "./CartDrawer.css";
-// import ProductsInCart from "../../ProductsInCart/ProductsInCart";
+import { Drawer } from 'antd';
+import { DeleteOutlined } from "@ant-design/icons";
+import "./CartDrawer.css"
 
-const CartDrawer = () => {
-    const [open, setOpen] = useState(false);
-    const { currentCart } = useContext(CartContext);
-    const showDrawer = () => {
-        setOpen(true);
-      };
-  return (
-    <>
-    <ShoppingCartOutlined type="primary" onClick={showDrawer} />
-    <Drawer title="Varukorg" placement="right"  open={open}>
-      <div className="CartDrawer-div">
-        <div>
-         {/* {<ProductsInCart />} */}
-        </div>
-      </div>
-      <hr />
-      <div className="drawerBottom">
-        <div>
-          <h4>Summa:</h4>
-          <h3>{currentCart.totalPrice} kr</h3>
-        </div>
-          {/* <Button onClick={onClose} disabled= {!currentCart.totalQuantity } type="primary" htmlType="submit"> */}
-            
-          {/* </Button> */}
-      </div>
-    </Drawer>
-  </>
-  )
+interface CartDrawerProps {
+  open: boolean;  
+  onClose: () => void;  
 }
 
-export default CartDrawer
+const CartDrawer: React.FC<CartDrawerProps> = ({ open, onClose }) => {
+  const cartContext = useContext(CartContext);
+
+  // Kontrollera om cartContext är tillgängligt
+  if (!cartContext) {
+    console.log("Inget context")
+    return null;
+  }
+
+  useEffect(() => {
+    console.log("Open state is now: ", open)
+}, [open]);
+
+  const { items } = cartContext;
+
+  // Funktion för att beräkna totalbeloppet
+  const calculateTotal = () => {
+    return items.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+
+  return (
+    <Drawer title="Din Varukorg" onClose={onClose} open={open}>
+      {items.map(item => (
+        <div className="cartItem-div" key={item._id}>
+          <div className="imgDiv"><img src={item.img[0]} alt={item.title} /></div>
+          <div className='titleAndPrice'>
+            <h3 className='productTitle'>{item.title}</h3>
+            <div className='quantity-control'>
+              <p>Antal:</p>
+              <button className="circle-button" onClick={() => cartContext.decreaseQuantity(item._id)}>-</button>
+              <span>{item.quantity}</span>
+              <button className="circle-button" onClick={() => cartContext.increaseQuantity(item._id)}>+</button>
+            </div>
+            <p className='priceParagraph'>
+              {item.quantity * item.price} SEK
+            </p>
+          </div>
+          <DeleteOutlined onClick={() => cartContext.removeFromCart(item._id)} className="delete-icon" />
+        </div>
+      ))}
+      <div className="totalCalc">
+      <h3>Totalt pris: {calculateTotal()} SEK</h3>
+    </div>
+    </Drawer>
+  );
+};
+
+export default CartDrawer;
+
+
+
 
 
 

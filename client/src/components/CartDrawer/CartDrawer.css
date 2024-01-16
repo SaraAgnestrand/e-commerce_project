@@ -1,0 +1,73 @@
+.cartItem-div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* background-color: aqua; */
+    margin-bottom: 2rem;
+    line-height: 1.8rem;
+    color:#252424;
+    
+}
+
+.imgDiv img{
+    flex: 1;
+    width: 5rem;
+    height: auto;
+}
+
+
+.titleAndPrice {
+    flex: 1;
+    margin-left: 6rem;
+}
+
+
+.productTitle {
+    flex-wrap: wrap;
+    font-weight: 400;
+    font-size: medium;
+   
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    
+  }
+  
+  .circle-button {
+    background-color: #f0f0f0; /* Grå bakgrund */
+    border: none;
+    border-radius: 50%; /* Gör knapparna cirkulära */
+    width: 20px; /* Bredd på cirkeln */
+    height: 20px; /* Höjd på cirkeln */
+    font-size: 16px; /* Storlek på plus- och minustecknet */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .circle-button:hover {
+    background-color: #e0e0e0; /* Mörkare grå färg när musen är över */
+  }
+  
+  input[type='number'] {
+    width: 50px; /* Bredd på nummerfältet */
+    text-align: center;
+    margin: 0 10px;
+  }
+
+.delete-icon {
+    cursor: pointer;
+    color: rgb(197, 102, 102); /* Eller den färg du föredrar */
+    // Lägg till ytterligare stilar vid behov
+  }
+
+  .totalCalc h3{
+    font-weight: 500;
+    color:#252424;
+
+}

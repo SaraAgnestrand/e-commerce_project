@@ -10,6 +10,9 @@ interface CartItem extends Product {
 export interface Cart {
   items: CartItem[];
   addToCart: (productId: string, quantity: number) => void;
+  increaseQuantity: (productId: string) => void;
+  decreaseQuantity: (productId: string) => void;
+  removeFromCart: (productId: string) => void;
 }
 
 
@@ -49,6 +52,7 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       console.error("Fetch Error:", error);
       return null;
     }
+
   };
 // Definierar en asynkron funktion 'addToCart' för att lägga till produkter i varukorgen
 const addToCart = async (productId: string, quantity: number) => {
@@ -82,10 +86,27 @@ const addToCart = async (productId: string, quantity: number) => {
   }
 };
 
-// Returnerar CartContext.Provider för att göra varukorgsdata och 'addToCart'-funktionen tillgänglig
-// för alla barnkomponenter inom denna kontext
+const increaseQuantity = (productId: string) => {
+  const newItems = items.map(item =>
+    item._id === productId ? { ...item, quantity: item.quantity + 1 } : item
+  );
+  updateCartItems(newItems);
+};
+
+const decreaseQuantity = (productId: string) => {
+  const newItems = items.map(item =>
+    item._id === productId && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
+  );
+  updateCartItems(newItems);
+};
+
+const removeFromCart = (productId: string) => {
+  const newItems = items.filter(item => item._id !== productId);
+  updateCartItems(newItems);
+};
+
 return (
-  <CartContext.Provider value={{ items, addToCart }}>
+  <CartContext.Provider value={{ items, addToCart, increaseQuantity, decreaseQuantity, removeFromCart }}>
     {children}
   </CartContext.Provider>
 );

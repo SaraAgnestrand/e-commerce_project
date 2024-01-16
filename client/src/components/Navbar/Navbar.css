@@ -37,7 +37,7 @@
 
 .icon-div {
     display: flex;
-    font-size: 1.8rem;
+    font-size: 2rem;
     cursor: pointer;
     gap: 20px;
     margin-right: 4rem;
@@ -52,6 +52,39 @@
     
 }
 
+/* Stilar för varukorgsikonen och badge */
+.cart-icon-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .cart-badge {
+    position: absolute;
+    top: 0.6px; 
+    right: -6px;
+    background-color: white; 
+    color: #252424;
+    border-radius: 50%;
+    width: 20px;     
+    height: 20px; 
+    font-size: 0.75rem; 
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  }
+
+
+@media (max-width: 768px) {
+    .cart-badge {
+        top: -8px;
+        right: -8px;
+        width: 12px; /* Mindre bredd och höjd för mindre skärmar */
+        height: 12px;
+        font-size: 0.6rem;
+    }
+}
 @media (max-width: 1380px) {
     .nav-links {
         gap: 20px;

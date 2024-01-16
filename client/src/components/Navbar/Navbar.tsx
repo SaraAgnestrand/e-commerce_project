@@ -1,54 +1,85 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { BsHandbag } from "react-icons/bs";
-import { GoPerson } from "react-icons/go";
-import { IoMenuOutline } from "react-icons/io5";
-// import CartDrawer from '../../components/CartDrawer'; 
+import { useState, useContext } from 'react';
+import CartDrawer from "../CartDrawer/CartDrawer"
 import { ShoppingOutlined, UserOutlined, MenuOutlined } from "@ant-design/icons";
-
+import { CartContext } from '../../context/CartContext';
 import './Navbar.css'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  
+  const { items } = useContext(CartContext);
+  
+  const showCartDrawer = () => {
+    setIsCartOpen(true);
+  };  
 
+  const closeCartDrawer = () => {
+    setIsCartOpen(false);
+  };
+  
+  const totalItemsInCart = items.reduce((total, item) => total + item.quantity, 0);
+  
   return (
-   <div className="navbar-section">
-      <h2 className="logo">LightGallery</h2>
-      <div className="nav-links">
-        <Link to="/">
-          Hem
-        </Link>
-        <Link to="/">
-          Taklampor
-        </Link>
-        <Link to="/productdetail">
-          Golvlampor
-        </Link>
-        <Link to="/">
-          Vägglampor
-        </Link>
-        <Link to="/">
-          Bordslampor
-        </Link>
-
+    <div className="navbar-section">
+    <h2 className="logo">LightGallery</h2>
+    <div className="nav-links">
+      <Link to="/">Hem</Link>
+      <Link to="/">Taklampor</Link>
+      <Link to="/productdetail">Golvlampor</Link>
+      <Link to="/">Vägglampor</Link>
+      <Link to="/">Bordslampor</Link>
+    </div>
+    <div className="icon-div">
+      <MenuOutlined className="menu-icon" onClick={() => setIsOpen(!isOpen)} />
+      <UserOutlined />
+      <div className="cart-icon-container">
+        <ShoppingOutlined onClick={showCartDrawer} />
+        {totalItemsInCart > 0 && (
+          <span className="cart-badge">{totalItemsInCart}</span>
+        )}
       </div>
-      <div className="icon-div">
-        <MenuOutlined className="menu-icon" onClick={() => setIsOpen
-            (!isOpen)} />
-        <UserOutlined />
-        {/* <CartDrawer /> */}
-        <ShoppingOutlined /> 
-       
+      <CartDrawer open={isCartOpen} onClose={closeCartDrawer} />
+    </div>
+  </div>
+);
+  //  <div className="navbar-section">
+  //     <h2 className="logo">LightGallery</h2>
+  //     <div className="nav-links">
+  //       <Link to="/">
+  //         Hem
+  //       </Link>
+  //       <Link to="/">
+  //         Taklampor
+  //       </Link>
+  //       <Link to="/productdetail">
+  //         Golvlampor
+  //       </Link>
+  //       <Link to="/">
+  //         Vägglampor
+  //       </Link>
+  //       <Link to="/">
+  //         Bordslampor
+  //       </Link>
+
+  //     </div>
+  //     <div className="icon-div">
+  //       <MenuOutlined className="menu-icon" onClick={() => setIsOpen
+  //           (!isOpen)} />
+  //       <UserOutlined />
+  //       <ShoppingOutlined onClick={showCartDrawer} /> 
+  //       <CartDrawer open={isCartOpen} onClose={closeCartDrawer} />
           
             
-      </div>
+  //     </div>
       
       
-    </div>
+  //   </div>
     
    
    
-  )
+  // )
 }
 
 export default Navbar;
