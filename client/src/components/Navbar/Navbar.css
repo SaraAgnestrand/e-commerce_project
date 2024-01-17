@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: center;
     /* justify-content: space-between; */
-    background-color: rgb(239, 216, 188);
+    /* background-color: rgb(239, 216, 188); */
+    background-color:    white;
     height: 9rem;
     width: 100%;
 
@@ -100,12 +101,11 @@
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
   }
 
-
 @media (max-width: 768px) {
     .cart-badge {
         top: -8px;
         right: -8px;
-        width: 12px; /* Mindre bredd och höjd för mindre skärmar */
+        width: 12px; 
         height: 12px;
         font-size: 0.6rem;
     }

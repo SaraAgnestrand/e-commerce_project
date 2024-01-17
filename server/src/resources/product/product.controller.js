@@ -1,6 +1,6 @@
 const { ProductModel } = require("./product.model");
 
-//getProducts
+//Hämta alla produkter
  const getProducts = async(req, res) => {
     console.log("Controller is hit!")
     try{
@@ -13,7 +13,7 @@ const { ProductModel } = require("./product.model");
         }   
 };
 
-//getProductById
+//Hämta produkt med spcifikt id
 const getProductById = async(req, res) => {
         const products = await ProductModel.findOne({_id:req.params.id})
         if (products) {
@@ -23,7 +23,7 @@ const getProductById = async(req, res) => {
         }  
 }
 
-//getProductByCategory
+//Hämta alla produkter med specifik kategori
 const getProductsByCategory = async (req, res) => {
     console.log("Requested category:", req.params.name);
     try{
@@ -35,7 +35,7 @@ const getProductsByCategory = async (req, res) => {
     }
 }; 
 
-//deleteProduct
+//Deleata en produkt med specifikt id 
 const deleteProduct = async (req, res, next) => {
     try {
         const existingProduct = await ProductModel.findById(req.params.id)
@@ -49,7 +49,7 @@ const deleteProduct = async (req, res, next) => {
     }
 }
 
-//createProduct
+//Skapa en produkt/Lägg till ny produkt
  const createProduct = async(req, res) => {
         try {
             const newProduct = await ProductModel.create(req.body);
@@ -61,7 +61,7 @@ const deleteProduct = async (req, res, next) => {
 
 
 
-//updateProduct
+//Upptatera/ändra en produkt
 // const updateProduct = async(req, res) => {
 //     if (req.body._id !== req.params.id) {
 //       return res.status(400).json('Body and param id are not the same');

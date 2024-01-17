@@ -1,4 +1,3 @@
-import Footer from'../Footer/Footer'
 import Hero from'../Hero/Hero'
 import ProductList from '../ProductList/ProductList'
 import './home.css'
@@ -10,7 +9,6 @@ const Home = () => {
     <div>
       <Hero />
       <ProductList />
-      <Footer />
     </div>
   )
 }

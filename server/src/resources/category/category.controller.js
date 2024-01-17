@@ -1,6 +1,6 @@
 const { CategoryModel } = require("./category.model")
-//getCategories
 
+//Hämta alla kategorier
 const getCategories = async (req, res) => {
     try {
         const categories = await CategoryModel.find();
@@ -9,7 +9,7 @@ const getCategories = async (req, res) => {
         res.status(400).json(error);  
     }
 };
-
+//Hämta kategori med ett specifikt id
 const getCategoryById = async(req, res, next) => {
     try{
         const category = await CategoryModel.findOne({_id:req.params.id});

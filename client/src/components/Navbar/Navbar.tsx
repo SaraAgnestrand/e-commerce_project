@@ -32,13 +32,15 @@ const Navbar = () => {
 
     <div className="navbar-section">
       <div className="top-row">
-        <h2 className="logo">LightGallery</h2>
+      <Link to="/"> <h2 className="logo">LightGallery</h2></Link>
         <div className="nav-links">
-          <Link to="/">Hem</Link>
-          <Link to="/">Taklampor</Link>
-          <Link to="/productdetail">Golvlampor</Link>
+        <Link to="/LoginForm">LOGGA In</Link>
+        <Link to="/RegisterForm">Skapa konto</Link>
+        <Link to="/">Hem</Link>
+          
+          {/* <Link to="/productdetail">Golvlampor</Link>
           <Link to="/">Vägglampor</Link>
-          <Link to="/">Bordslampor</Link>
+          <Link to="/">Bordslampor</Link> */}
         </div>
         <div className="icon-div">
           <MenuOutlined className="menu-icon" onClick={() => setIsOpen(!isOpen)} />
