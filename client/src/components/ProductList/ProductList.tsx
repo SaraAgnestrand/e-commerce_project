@@ -24,7 +24,7 @@ const ProductList = () => {
         <div className='productList-grid'>
         {currentProducts.map((product) => (
           
-          <ProductCard key={product._id} products={product} />
+          <ProductCard key={product._id} product={product} />
         ))}
           </div>
     {indexOfLastProduct < products.length && (

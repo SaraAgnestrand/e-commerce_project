@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import './Hero.css';
 
@@ -6,7 +6,6 @@ const Hero = () => {
   const images = [
     "https://livingedge.com.au/on/demandware.static/-/Sites-livingedge-master/default/dw0b358f25/Flos_GattoLamp_0000_1920x1080.jpg",
     "https://101cph.se/cdn/shop/products/Loft_Dining_Area_-_Brass_-_1_74bdfed0-6e5e-4325-bcce-5138c50fb400_1728x.jpg?v=1699956086",
-    // "https://www.lannamobler.se/globalassets/category-images/7.-belysning/bordslampor-2021.jpg",
     "https://paperrooms.co.uk/image/catalog/Petite%20Friture/Vertigo%20200/L0020101_L0020301_vertigo_suspension_small%20large_black_delight%20yoga_hospitality_Den%20Haag_%C2%A9Aico%20Lind%20-%20The%20Loft.jpg"
   ];
 

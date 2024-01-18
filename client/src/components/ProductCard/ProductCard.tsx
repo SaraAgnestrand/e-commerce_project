@@ -3,23 +3,23 @@ import { useNavigate } from "react-router-dom";
 import "./ProductCard.css"
 
 export interface ProductCardProps {
-    products: Product;
+    product: Product;
 }
 
-function ProductCard({ products }: ProductCardProps) {
+function ProductCard({ product }: ProductCardProps) {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(`/${products._id}`); // antar att varje produkt har ett unikt 'id'
+    navigate(`/${product._id}`); 
   };
   return (
     
           <div className="productCard-info" onClick={handleNavigate}>
-              <img src={products.img} alt={products.title} />
+              <img src={product.img[0]} alt={product.title} />
               <div className="productCard-text">
-                  <h3>{products.title}</h3>
-                  <p>{products.color}</p>
-                  <p className="price">{products.price} SEK</p>
+                  <h3>{product.title}</h3>
+                  <p>{product.color}</p>
+                  <p className="price">{product.price} SEK</p>
               </div>
       </div>
      

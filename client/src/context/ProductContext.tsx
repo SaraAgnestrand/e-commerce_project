@@ -6,8 +6,9 @@ export interface Product {
     price: number,
     color: string,
     description: string,
-    img: string [],
+    img: string[],
     inStock: number,
+    category: string;
 }
 
 interface ProductContext {

@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer"
 import { CartProvider } from './context/CartContext'
 import { ProductProvider } from './context/ProductContext';
+import { CategoryProvider } from './context/CategoryContext'
 import Main from "./components/Main/Main";
 
 
@@ -10,18 +11,19 @@ import Main from "./components/Main/Main";
 const App = () => {
   return (
     <div>
-
       <Router>
-        <ProductProvider>
-          <CartProvider>
-            <Navbar />
-            
-              <Routes>
-                <Route path="/*" element={<Main />} />
-              </Routes>
-            <Footer />
-          </CartProvider>
-        </ProductProvider>
+        <CategoryProvider>
+          <ProductProvider>
+            <CartProvider>
+              <Navbar />
+              
+                <Routes>
+                  <Route path="/*" element={<Main />} />
+                </Routes>
+              <Footer />
+            </CartProvider>
+          </ProductProvider>
+        </CategoryProvider>
       </Router>
 
     </div>

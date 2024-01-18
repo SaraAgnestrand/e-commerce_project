@@ -3,6 +3,8 @@ import { useState, useContext } from 'react';
 import CartDrawer from "../CartDrawer/CartDrawer"
 import { ShoppingOutlined, UserOutlined, MenuOutlined } from "@ant-design/icons";
 import { CartContext } from '../../context/CartContext';
+
+import { useCategories } from '../../context/CategoryContext';
 import Banner from '../Banner/Banner'
 import './Navbar.css'
 
@@ -11,7 +13,8 @@ const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   
   const cartContext = useContext(CartContext);
-  
+  const { categories } = useCategories(); 
+
   if (!cartContext) {
     return null;
   }
@@ -32,29 +35,30 @@ const Navbar = () => {
 
     <div className="navbar-section">
       <div className="top-row">
-      <Link to="/"> <h2 className="logo">LightGallery</h2></Link>
-        <div className="nav-links">
-        <Link to="/LoginForm">LOGGA In</Link>
-        <Link to="/RegisterForm">Skapa konto</Link>
-        <Link to="/">Hem</Link>
-          
-          {/* <Link to="/productdetail">Golvlampor</Link>
-          <Link to="/">Vägglampor</Link>
-          <Link to="/">Bordslampor</Link> */}
-        </div>
+          <Link to="/"> <h2 className="logo">LightGallery</h2></Link>
+            <div className="nav-links">
+              <Link to="/LoginForm">LOGGA In</Link>
+              <Link to="/RegisterForm">Skapa konto</Link>
+              <Link to="/">Hem</Link>
+              {categories && categories.map(category => (
+                  <Link key={category._id} to={`/category/${category._id}`}>
+                    {category.title}
+                  </Link>
+                ))}
+            </div>
         <div className="icon-div">
           <MenuOutlined className="menu-icon" onClick={() => setIsOpen(!isOpen)} />
           <UserOutlined className='user-icon' />
           <div className="cart-icon-container">
             <ShoppingOutlined className="cart-icon" onClick={showCartDrawer} />
-            {totalItemsInCart > 0 && (
-              <span className="cart-badge">{totalItemsInCart}</span>
-            )}
-          </div>
+              {totalItemsInCart > 0 && (
+                <span className="cart-badge">{totalItemsInCart}</span>
+              )}
+            </div>
           <CartDrawer open={isCartOpen} onClose={closeCartDrawer} />
         </div>
       </div>
-      <Banner /> {/* Banner längst ner inom .navbar-section */}
+      <Banner /> 
     </div>
   );
 }
