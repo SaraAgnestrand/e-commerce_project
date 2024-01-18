@@ -17,21 +17,21 @@
     margin: auto;
 }
 
-.productCard-div {
+/* .productCard-div {
     flex: 0 0 calc(33.333% - 3rem);
     margin-bottom: 3rem; 
-}
+} */
 
 /* Responsiv design för mindre skärmar */
-@media only screen and (max-width: 1024px) {
+/* @media only screen and (max-width: 1024px) {
     .productCard-div {
         flex: 0 0 calc(50% - 3rem); /* 2 produkter per rad på mindre skärmar */
-    }
+    /* }
 }
 
 @media only screen and (max-width: 600px) {
     .productCard-div {
-        flex: 0 0 100%; /* 1 produkt per rad på mycket små skärmar */
+        flex: 0 0 100%; 
     }
-}
+/* } */ */ */
 

@@ -1,3 +1,43 @@
+// import ProductCard from "../ProductCard/ProductCard";
+// import { useState } from "react";
+// import { Product } from "../../context/ProductContext"; 
+// import './ProductList.css'
+
+// // Ta emot 'productsToShow' som en prop
+// const ProductList = ({ productsToShow }: { productsToShow: Product[] }) => {
+//     const [currentPage, setCurrentPage] = useState(1); 
+//     const productsPerPage = 12; 
+
+    
+
+//     // Använd 'productsToShow' för paginering
+//     const indexOfLastProduct = currentPage * productsPerPage;  
+//     const indexOfFirstProduct = indexOfLastProduct - productsPerPage; 
+//     const currentProducts = productsToShow.slice(indexOfFirstProduct, indexOfLastProduct); 
+
+//     const loadMoreProducts = () => {
+//         setCurrentPage(prevPage => prevPage + 1); 
+//     };
+
+//     return (
+//         <div className='ProductList-section'>
+//             <div className='productList-grid'>
+//             {currentProducts.map((product) => (
+//                 <ProductCard key={product._id} product={product} />
+//             ))}
+//             </div>
+//             {indexOfLastProduct < productsToShow.length && (
+//                 <div className='load-more-container'>
+//                     <button onClick={loadMoreProducts}>Load More</button>
+//                 </div>
+//             )}
+//         </div>
+//     )
+// }
+
+// export default ProductList;
+
+
 import ProductCard from"../ProductCard/ProductCard";
 import { useState, useContext } from "react"; 
 import { ProductContext } from "../../context/ProductContext"

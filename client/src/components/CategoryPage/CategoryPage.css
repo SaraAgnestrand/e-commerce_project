@@ -1,11 +1,63 @@
+.category-section {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;  */
+  align-items: center; /* Säkerställer vertikal linjering vid start */
+  padding: 4rem; 
+}
+.categoryTitle-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40rem; 
+  margin: auto;
+  margin-top: 4rem; 
+  margin-bottom: 4rem;
+}
+
+.categoryText-Div {
+  margin-left: 2rem;
+}
+
+.categoryTitle-div h2 {
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+.categoryTitle-div p {
+ margin-top: 2rem;
+ margin-bottom: 6rem;
+ width: 25rem;
+ line-height: 2rem;
+ font-weight: 400;
+ font-size: larger;
+}
+
+.categoryTitle-div img {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover; /* Detta säkerställer att bilden täcker hela området utan att förvrängas, kan ändras till 'contain' om hela bilden ska vara synlig */
+  
+}
+
 .categoryProductList-grid {
-    display: grid;
+
+  flex: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center; 
+  align-items: flex-start;  
+  max-width: 80%; /* Maxbredd för att kontrollera gridens storlek */
+  margin: auto;
+    /* display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 1rem; */
   }
   
  
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     .categoryProductList-grid {
       grid-template-columns: repeat(2, 1fr); 
     }
@@ -15,4 +67,4 @@
     .categoryProductList-grid {
       grid-template-columns: 1fr;
     }
-  }
+  } */

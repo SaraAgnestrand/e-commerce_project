@@ -39,7 +39,7 @@ const Navbar = () => {
             <div className="nav-links">
               <Link to="/LoginForm">LOGGA In</Link>
               <Link to="/RegisterForm">Skapa konto</Link>
-              <Link to="/">Hem</Link>
+          
               {categories && categories.map(category => (
                   <Link key={category._id} to={`/category/${category._id}`}>
                     {category.title}
