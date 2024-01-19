@@ -10,16 +10,13 @@ const ProductList = () => {
   const productsPerPage = 12; 
 
     const indexOfLastProduct = currentPage * productsPerPage;  
-    // const indexOfFirstProduct = indexOfLastProduct - productsPerPage; 
     const currentProducts = products.slice(0, indexOfLastProduct);
-  
-  // console.log("Context Products:", products); 
 
  
   const loadMoreProducts = () => {
     setCurrentPage(prevPage => prevPage + 1); 
   };
-  
+
   return (
     <div className='ProductList-section'>
         <div className='productList-grid'>
