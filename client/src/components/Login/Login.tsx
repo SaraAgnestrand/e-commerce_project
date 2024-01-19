@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 import { Link } from 'react-router-dom'; 
 import './Login.css';
 
 const LoginForm: React.FC = () => {
+    const { login } = useContext(UserContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Email:', email);
-        console.log('Password:', password);
+        if (login) {
+            await login(email, password);
+        } else {
+            console.error('Login function is not available');
+        }
     };
 
     return (
@@ -20,7 +25,7 @@ const LoginForm: React.FC = () => {
                   <input 
                       type="email" 
                       id="email" 
-                      placeholder="Ange din e-post" // Lägg till placeholder här
+                      placeholder="Ange din e-post" 
                       value={email} 
                       onChange={(e) => setEmail(e.target.value)} 
                       required 

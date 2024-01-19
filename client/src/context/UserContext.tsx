@@ -9,10 +9,11 @@ export interface User {
 }
 
 interface UserContextType {
-  user: User | null;
-  setUser: Dispatch<SetStateAction<User | null>>;
-  register: (userData: User) => Promise<void>;
-}
+    user: User | null;
+    setUser: Dispatch<SetStateAction<User | null>>;
+    register: (userData: User) => Promise<void>;
+    login: (email: string, password: string) => Promise<void>;
+  }
 
 export const UserContext = createContext<UserContextType>(null as any);
 
@@ -42,11 +43,33 @@ export const UserProvider: React.FC<PropsWithChildren> = ({ children }) => {
     }
   };
 
+  const login = async (email: string, password: string) => {
+    try {           
+      const response = await fetch('http://localhost:3000/api/users/loginUser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      const data = await response.json();
+      if (response.status === 200) {
+        console.log('Logged in user:', data);
+        setUser(data);
+      } else {
+        console.error('Failed to login:', data.message);
+      }
+    } catch (error) {
+      console.error('Failed to login user', error);
+    }
+  };
+
   // include user login, logout, fetch user data
 
   // Initializing or fetching user data can be done here with useEffect if needed
 
-  const contextValue: UserContextType = { user, setUser, register };
+  const contextValue: UserContextType = { user, setUser, register, login };
 
   return (
     <UserContext.Provider value={contextValue}>
