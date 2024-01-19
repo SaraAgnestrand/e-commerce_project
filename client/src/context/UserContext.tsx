@@ -23,7 +23,7 @@ export const UserProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    // Vid komponentens montering, försök hämta användaren från sessionscookien
+   
     const userFromCookie = Cookies.get('user');
     if (userFromCookie) {
       setUser(JSON.parse(userFromCookie));
@@ -77,14 +77,14 @@ export const UserProvider: React.FC<PropsWithChildren> = ({ children }) => {
   };
 
   const logout = () => {
-    // Logga ut användaren genom att nollställa user i UserContext och ta bort sessionscookien
+    
     setUser(null);
     Cookies.remove('user');
   };
 
-  // include user login, logout, fetch user data
+  
 
-  // Initializing or fetching user data can be done here with useEffect if needed
+
 
   const contextValue: UserContextType = { user, setUser, register, login, logout };
 
