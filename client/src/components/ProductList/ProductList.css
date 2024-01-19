@@ -17,6 +17,26 @@
     margin: auto;
 }
 
+.load-more-container button {
+    margin-top: 4rem;
+    background-color: rgb(93, 91, 91); 
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: large;
+
+}
+
+.load-more-container button:hover {
+    background-color: white;
+    color: rgb(93, 91, 91);
+    border: 1px solid rgb(93, 91, 91);
+}
+}
+
 /* .productCard-div {
     flex: 0 0 calc(33.333% - 3rem);
     margin-bottom: 3rem; 

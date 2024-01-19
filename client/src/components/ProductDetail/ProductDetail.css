@@ -90,6 +90,7 @@
 
 
 .buy-button {
+    
     background-color: rgb(93, 91, 91); 
     color: white;
     padding: 8px 16px;
@@ -97,10 +98,13 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: large;
 }
 
 .buy-button:hover {
-    background-color: rgb(143, 137, 137); 
+    background-color: white;
+    color: rgb(93, 91, 91);
+    border: 1px solid rgb(93, 91, 91); 
 }
 
 @media (max-width: 768px) {
