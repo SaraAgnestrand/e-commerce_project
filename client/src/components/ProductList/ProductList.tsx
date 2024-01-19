@@ -19,6 +19,7 @@ const ProductList = () => {
   const loadMoreProducts = () => {
     setCurrentPage(prevPage => prevPage + 1); 
   };
+  
   return (
     <div className='ProductList-section'>
         <div className='productList-grid'>

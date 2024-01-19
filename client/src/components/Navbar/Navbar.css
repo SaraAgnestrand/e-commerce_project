@@ -13,13 +13,14 @@
     z-index: 1000; 
 }
 
-.top-row {
+  .top-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%; /* Fyll hela bredden */
-    height: 8rem; /* Höjd på din nuvarande navbar */
-  }
+    justify-content: flex-start; 
+    width: 100%;
+    height: 8rem;
+    margin-left: auto;
+}
 
 .logo {
     flex: 20%;
@@ -61,11 +62,9 @@
 
 .menu-icon {
     display: none; 
-    cursor: pointer;
-    font-size: 1.8rem;
-    color: #252424;
-    
 }
+
+
 
 .menu-icon:hover {
     color: rgb(93, 91, 91);
@@ -88,8 +87,8 @@
     position: absolute;
     top: 0.6px; 
     right: -6px;
-    background-color: white; 
-    color: #252424;
+    background-color: rgb(93, 91, 91); 
+    color: white;
     border-radius: 50%;
     width: 20px;     
     height: 20px; 
@@ -101,6 +100,8 @@
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
   }
 
+  /* Se över responsiviteten mer */
+
 @media (max-width: 768px) {
     .cart-badge {
         top: -8px;
@@ -110,11 +111,46 @@
         font-size: 0.6rem;
     }
 }
+
+.icon-div {
+        display: flex; 
+        justify-content: flex-end; 
+        align-items: center; 
+        gap: 10px; 
+        margin-right: 2rem;
+        margin-left: auto; 
+        font-size: 2rem;
+    }
+
+
+
+@media (max-width: 1565px) {
+    .icon-div {
+        display: flex; 
+        justify-content: flex-end; 
+        align-items: center; 
+        gap: 10px; 
+        margin-right: 2rem;
+        margin-left: auto; 
+        font-size: 2rem;
+    }
+    
+}
 @media (max-width: 1380px) {
     .nav-links {
         gap: 20px;
 
     }
+
+
+    .menu-icon {
+        display: block;
+        margin-left: 1rem; 
+        font-size: 1.8rem;
+        color: #252424;
+        cursor: pointer;
+            
+        }
 }
 @media (max-width: 1080px) {
  
@@ -150,16 +186,14 @@
         font-size: 2rem;
     }
 
-    .menu-icon {
-        display: block; 
-    }
-
     .logo {
         margin-left: 1remrem;
         margin-right: 1rem; 
         font-size: 2.2rem;
     }
+
 }
+
 
 
 
