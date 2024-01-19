@@ -35,7 +35,6 @@ const Navbar = () => {
   
   const totalItemsInCart = items.reduce((total, item) => total + item.quantity, 0);
 
-  // Skapa en Menu för dropdown
   const categoryMenu = (
     <Menu>
       {categories && categories.map(category => (
@@ -48,7 +47,7 @@ const Navbar = () => {
     </Menu>
   );
 
-  // Rätta rill bug med depricated längre ned
+  // Rätta till bug med deprecated 
   return (
     <div className="navbar-section">
       <div className="top-row">
@@ -57,8 +56,8 @@ const Navbar = () => {
         </Dropdown>
         <Link to="/"> <h2 className="logo">LightGallery</h2></Link>
         <div className="nav-links">
-            <Link to="/LoginForm">LOGGA In</Link>
-            <Link to="/RegisterForm">Skapa konto</Link>
+            <Link to="/Login">LOGGA In</Link>
+            <Link to="/Register">Skapa konto</Link>
               
             {categories && categories.map(category => (
               <Link key={category._id} to={`/category/${category.   _id}`}>
@@ -67,7 +66,9 @@ const Navbar = () => {
             ))}
         </div>
         <div className="icon-div">
-          <UserOutlined className='user-icon' />
+          <Link to="/Login">
+            <UserOutlined className='user-icon' />
+          </Link>
           <div className="cart-icon-container">
             <ShoppingOutlined className="cart-icon" onClick={showCartDrawer} />
             {totalItemsInCart > 0 && (

@@ -1,6 +1,6 @@
-import "./LoginForm.css"
 import React, { useState } from 'react';
-import './LoginForm.css';
+import { Link } from 'react-router-dom'; 
+import './Login.css';
 
 const LoginForm: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -37,7 +37,7 @@ const LoginForm: React.FC = () => {
                   />
               </div>
               <button type="submit" className="login-button">Logga in</button>
-              <button type="submit" className="createAcount-button">Skapa konto</button>
+              <Link to="/Register" className="createAcount-button">Skapa konto</Link>
           </form>
       </div>
   );

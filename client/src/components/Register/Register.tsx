@@ -1,19 +1,42 @@
-import React, { useState } from 'react';
-import '../LoginForm/LoginForm.css'; 
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
+import '../Login/Login.css'; 
 
-const RegisterForm: React.FC = () => {
+
+
+const Register: React.FC = () => {
+    const userContext = useContext(UserContext);
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('First Name:', firstName);
-        console.log('Last Name:', lastName);
-        console.log('Email:', email);
-        console.log('Password:', password);
+        if (userContext) {
+            const userData = {
+                firstName,
+                lastName,
+                email,
+                password,
+            };
+            await userContext.register(userData);
+            console.log(userData);
+        } else {
+            console.error('User context is not available');
+        }
     };
+
+    // const handleSubmit = (e: React.FormEvent) => {
+    //     e.preventDefault();
+    //     console.log('First Name:', firstName);
+    //     console.log('Last Name:', lastName);
+    //     console.log('Email:', email);
+    //     console.log('Password:', password);
+    // };
+
+
 
     return (
         <div className="login-container">
@@ -65,4 +88,4 @@ const RegisterForm: React.FC = () => {
     );
 };
 
-export default RegisterForm;
+export default Register;

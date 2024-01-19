@@ -89,11 +89,6 @@ const ProductDetail = () => {
                 <p className='product-color'>{product.color}</p>
                 <p>{product.description}</p>
                 <p className='product-price'>{product.price} SEK</p>
-                {/* <div className='quantity-control'>
-                  <button onClick={() => setQuantity(q => q > 1 ? q - 1 : 1)}>-</button>
-                  <input type="number" value={quantity} onChange={e => setQuantity(Number(e.target.value))} />
-                  <button onClick={() => setQuantity(q => q + 1)}>+</button>
-                </div> */}
                 <button className="buy-button" onClick={handleAddToCart}>Lägg i varukorg</button>
               </div>
             </>
