@@ -93,13 +93,7 @@ const ProductDetail = () => {
               </div>
             </>
           )}
-          
-      
-        
-        
     </div>
-
-
   )
 }
 
