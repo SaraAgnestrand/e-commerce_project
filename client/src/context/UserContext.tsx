@@ -83,7 +83,7 @@ export const UserProvider: React.FC<PropsWithChildren> = ({ children }) => {
     setUser(null);
     Cookies.remove('user');
     navigate('/');
-    // window.location.reload();
+   
   };
 
 

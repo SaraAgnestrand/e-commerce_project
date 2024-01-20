@@ -1,8 +1,7 @@
 .ProductList-section {
     display: flex;
     flex-direction: column;
-    /* justify-content: center;  */
-    align-items: center; /* Säkerställer vertikal linjering vid start */
+    align-items: center; 
     padding: 4rem; 
 }
 
@@ -13,12 +12,21 @@
     gap: 3rem;
     justify-content: center; 
     align-items: flex-start;  
-    max-width: 80%; /* Maxbredd för att kontrollera gridens storlek */
+    max-width: 80%; 
     margin: auto;
 }
 
+.load-more-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    flex-direction: row;
+    
+}
+
+
 .load-more-container button {
-    margin-top: 4rem;
+    margin-top: 2rem;
     background-color: rgb(93, 91, 91); 
     color: white;
     padding: 8px 16px;
@@ -30,28 +38,22 @@
 
 }
 
+.scroll-to-top-icon {
+    font-size: 3rem; 
+    color: white; 
+    cursor: pointer; 
+    transition: color 0.4s ease; 
+    margin-left: 4rem;
+    margin-top: 1.3rem;
+    /* align-self: center; */
+}
+
+.scroll-to-top-icon:hover {
+    color: rgb(93, 91, 91); 
+}
+
 .load-more-container button:hover {
     background-color: white;
     color: rgb(93, 91, 91);
     border: 1px solid rgb(93, 91, 91);
 }
-}
-
-/* .productCard-div {
-    flex: 0 0 calc(33.333% - 3rem);
-    margin-bottom: 3rem; 
-} */
-
-/* Responsiv design för mindre skärmar */
-/* @media only screen and (max-width: 1024px) {
-    .productCard-div {
-        flex: 0 0 calc(50% - 3rem); /* 2 produkter per rad på mindre skärmar */
-    /* }
-}
-
-@media only screen and (max-width: 600px) {
-    .productCard-div {
-        flex: 0 0 100%; 
-    }
-/* } */ */ */
-

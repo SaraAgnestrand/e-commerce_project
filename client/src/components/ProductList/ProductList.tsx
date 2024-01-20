@@ -1,6 +1,7 @@
 import ProductCard from"../ProductCard/ProductCard";
 import { useState, useContext } from "react"; 
 import { ProductContext } from "../../context/ProductContext"
+import { UpCircleOutlined } from "@ant-design/icons"; <UpCircleOutlined />
 import './ProductList.css'
 
 
@@ -17,6 +18,13 @@ const ProductList = () => {
     setCurrentPage(prevPage => prevPage + 1); 
   };
 
+ // Funktion för att skrolla till toppen av sidan
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Ger en mjuk skrollning till toppen
+        });
+    };
   return (
     <div className='ProductList-section'>
         <div className='productList-grid'>
@@ -28,6 +36,7 @@ const ProductList = () => {
     {indexOfLastProduct < products.length && (
         <div className='load-more-container'>
             <button onClick={loadMoreProducts}>Ladda fler produkter</button>
+            <UpCircleOutlined className="scroll-to-top-icon" onClick={scrollToTop} />
         </div>
     )}
 </div>
