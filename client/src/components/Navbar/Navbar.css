@@ -74,6 +74,14 @@
     color: rgb(93, 91, 91);
 } 
 
+.user-icon-logged-in {
+    color: rgb(137, 165, 150); /* eller den färg du vill använda när användaren är inloggad */
+}
+
+.user-icon-logged-out {
+    color: grey; /* eller den färg du vill använda när användaren inte är inloggad */
+}
+
 .cart-icon:hover {
     color: rgb(93, 91, 91);
 } 

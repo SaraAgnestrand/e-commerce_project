@@ -4,6 +4,7 @@ import CartDrawer from "../CartDrawer/CartDrawer"
 import { ShoppingOutlined, UserOutlined, MenuOutlined } from "@ant-design/icons";
 import { Dropdown, Menu } from 'antd';
 import { CartContext } from '../../context/CartContext';
+import { UserContext } from '../../context/UserContext';
 import { useCategories } from '../../context/CategoryContext';
 import Banner from '../Banner/Banner'
 import './Navbar.css'
@@ -47,6 +48,16 @@ const Navbar = () => {
     </Menu>
   );
 
+  const { user, logout } = useContext(UserContext); // använda UserContext
+
+  const userMenu = (
+    <Menu>
+      <Menu.Item key="logout" onClick={logout}>
+        Logga Ut
+      </Menu.Item>
+    </Menu>
+  );
+
   // Rätta till bug med deprecated 
   return (
     <div className="navbar-section">
@@ -66,9 +77,17 @@ const Navbar = () => {
             ))}
         </div>
         <div className="icon-div">
+        {user ? (
+          <Dropdown overlay={userMenu}>
+            <a className="user-icon-link" onClick={e => e.preventDefault()}>
+              <UserOutlined className='user-icon user-icon-logged-in' />
+            </a>
+          </Dropdown>
+        ) : (
           <Link to="/Login">
-            <UserOutlined className='user-icon' />
+            <UserOutlined className='user-icon user-icon-logged-out' />
           </Link>
+        )}
           <div className="cart-icon-container">
             <ShoppingOutlined className="cart-icon" onClick={showCartDrawer} />
             {totalItemsInCart > 0 && (

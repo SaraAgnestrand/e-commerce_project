@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, PropsWithChildren, Dispatch, SetStateAction } from "react";
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 export interface User {
   _id?: string;
@@ -76,14 +77,14 @@ export const UserProvider: React.FC<PropsWithChildren> = ({ children }) => {
     }
   };
 
+  const navigate = useNavigate();
+
   const logout = () => {
-    
     setUser(null);
     Cookies.remove('user');
+    navigate('/');
+    // window.location.reload();
   };
-
-  
-
 
 
   const contextValue: UserContextType = { user, setUser, register, login, logout };
