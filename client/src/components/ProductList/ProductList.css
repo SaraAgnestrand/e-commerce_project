@@ -16,7 +16,7 @@
     margin: auto;
 }
 
-.load-more-container {
+.actions-container {
     display: flex; 
     justify-content: center;
     align-items: center; 
@@ -25,7 +25,7 @@
 }
 
 
-.load-more-container button {
+.actions-container button {
     margin-top: 2rem;
     background-color: rgb(93, 91, 91); 
     color: white;
@@ -52,7 +52,7 @@
     color: rgb(93, 91, 91); 
 }
 
-.load-more-container button:hover {
+.actions-container button:hover {
     background-color: white;
     color: rgb(93, 91, 91);
     border: 1px solid rgb(93, 91, 91);

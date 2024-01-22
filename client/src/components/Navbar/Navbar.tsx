@@ -66,10 +66,7 @@ const Navbar = () => {
         <MenuOutlined className="menu-icon" onClick={handleCategoryClick} />
         </Dropdown>
         <Link to="/"> <h2 className="logo">LightGallery</h2></Link>
-        <div className="nav-links">
-            <Link to="/Login">LOGGA In</Link>
-            <Link to="/Register">Skapa konto</Link>
-              
+        <div className="nav-links">   
             {categories && categories.map(category => (
               <Link key={category._id} to={`/category/${category.   _id}`}>
               {category.title}
