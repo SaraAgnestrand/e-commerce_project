@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useCategories } from '../../context/CategoryContext';
 import { useContext } from "react"; 
 import { ProductContext } from "../../context/ProductContext";
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import ProductCard from"../ProductCard/ProductCard";
 import './CategoryPage.css';
 
@@ -43,6 +44,9 @@ const CategoryPage = () => {
             <ProductCard key={product._id} product={product} />
           ))}
         </div>
+        <div className='scrollToTop-wrapper'>
+      <ScrollToTop />
+    </div>
     </div>
   );
 };

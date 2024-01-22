@@ -55,6 +55,13 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem; */
   }
+
+  .scrollToTop-wrapper {
+    width: 100%; /* Tar hela bredden för att centrera ikonen korrekt */
+    display: flex;
+    justify-content: center; /* Centrerar ikonen horisontellt */
+    padding: 2rem; /* Lägg till lite padding ovanför och nedanför ikonen */
+  }
   
  
   /* @media (max-width: 768px) {
