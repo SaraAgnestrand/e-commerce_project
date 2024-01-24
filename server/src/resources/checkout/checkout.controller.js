@@ -24,7 +24,7 @@ async function checkout(req, res) {
     const items = req.body;
     console.log("Request body:", items);
     
-    // Hämta pris-ID och annan information från din MongoDB-databas baserat på produkt-ID
+    // Hämta pris-ID och annan information från MongoDB-databas baserat på produkt-ID
     const lineItems = await Promise.all(
       items.map(async (item) => {
         const product = await fetchProductDetails(item._id); // Hämta hela produktobjektet
@@ -52,28 +52,6 @@ async function checkout(req, res) {
   }
 }
 
-// async function checkout (req, res) {
-//     try {
-//         console.log(req.body +"i checkout---------------------------------")
-//         const session = await stripe.checkout.sessions.create({
-//             line_items: req.body.map(item => {
-//               console.log("Cart Item: ", item)
-//                 return {
-//                     price: item.id,   
-//                     quantity: item.quantity,
-//                 }
-//             }),
-//             mode: "payment",
-//             success_url: `${CLIENT_URL}/confirmation`,
-//             cancel_url: CLIENT_URL,
-//             allow_promotion_codes: true
-//         });
-//         res.status(200).json({ url: session.url, sessionId: session.id  })
-//     } catch (error) {
-//         console.log(error);
-//         res.status(400).json("Det gick inte så bra")
-//     }
-// }
 
 async function verify(req, res) {
     try {
