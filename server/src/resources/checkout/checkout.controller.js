@@ -1,7 +1,6 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 const fs = require("fs");
 const { ProductModel } = require("../product/product.model");
-const filePath = "./db/orders.json"; // Lokal JSON-fil för orderhistorik
 const CLIENT_URL = "http://localhost:5173"
 
 
@@ -32,7 +31,7 @@ async function checkout(req, res) {
           throw new Error(`No Stripe price ID found for product ID ${item._id}`);
         }
         return {
-          price: product.price_id, // Använd Stripe-pris-ID:t här
+          price: product.price_id, 
           quantity: item.quantity,
         };
       })
@@ -54,19 +53,23 @@ async function checkout(req, res) {
 
 
 async function verify(req, res) {
-    try {
-      const session = await stripe.checkout.sessions.retrieve(req.body.sessionId);
-      if (session.payment_status !== "paid") {
-        return res.status(400).json({ verified: false });
-      }
-  
-      // Lägg till hantera MongoDB-databas och spara ordern.
-  
-      res.status(200).json({ verified: true });
-    } catch (error) {
-      console.log(error.message);
-      res.status(500).json({ error: "Ett fel uppstod vid behandling av ordern." });
+  try {
+    const session = await stripe.checkout.sessions.retrieve(req.body.sessionId);
+    if (session.payment_status !== "paid") {
+      return res.status(400).json({ verified: false });
     }
+
+    // Lägg till hantera MongoDB-databas och spara ordern.
+
+    res.status(200).json({ verified: true });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error: "Ett fel uppstod vid behandling av ordern." });
   }
+}
 
 module.exports = { checkout, verify }
+
+
+
+
