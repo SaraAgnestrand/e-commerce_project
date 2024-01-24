@@ -25,6 +25,27 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ open, onClose }) => {
     return items.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
+  async function handlePayment() {
+    try {
+      const response = await fetch('http://localhost:3000/api/checkout/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(items), // Skicka din kundvagn här
+      });
+  
+      if (response.ok) {
+        const { url } = await response.json();
+        window.location.href = url; // Omdirigera användaren till Stripe Checkout
+      } else {
+        // Hantera fel här
+      }
+    } catch (error) {
+      // Hantera nätverksfel eller andra fel här
+    }
+  }
+
 
   return (
     <Drawer title="Varukorg:" onClose={onClose} open={open}>
@@ -55,7 +76,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ open, onClose }) => {
       ))}
       <div className="totalCalc">
       <h3>Totalt pris: {calculateTotal()} SEK</h3>
-      <button>Gå till kassa</button>
+      <button onClick={handlePayment}>Gå till kassa</button>
     </div>
     </>}
     </Drawer>

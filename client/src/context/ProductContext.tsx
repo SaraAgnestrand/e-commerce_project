@@ -4,6 +4,7 @@ export interface Product {
     _id: string,
     title: string,
     price: number,
+    price_id: string,
     color: string,
     description: string,
     img: string[],

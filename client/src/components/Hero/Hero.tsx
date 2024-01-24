@@ -1,13 +1,23 @@
 import { useState } from 'react';
+import hero1 from "../../assets/hero1.png"
+import hero2 from "../../assets/hero2.png"
+import hero3 from "../../assets/hero3.png"
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import './Hero.css';
 
-const Hero = () => {
-  const images = [
-    "https://livingedge.com.au/on/demandware.static/-/Sites-livingedge-master/default/dw0b358f25/Flos_GattoLamp_0000_1920x1080.jpg",
-    "https://101cph.se/cdn/shop/products/Loft_Dining_Area_-_Brass_-_1_74bdfed0-6e5e-4325-bcce-5138c50fb400_1728x.jpg?v=1699956086",
-    "https://paperrooms.co.uk/image/catalog/Petite%20Friture/Vertigo%20200/L0020101_L0020301_vertigo_suspension_small%20large_black_delight%20yoga_hospitality_Den%20Haag_%C2%A9Aico%20Lind%20-%20The%20Loft.jpg"
-  ];
+// const Hero = () => {
+//   const images = [
+//     "https://livingedge.com.au/on/demandware.static/-/Sites-livingedge-master/default/dw0b358f25/Flos_GattoLamp_0000_1920x1080.jpg",
+//     "https://101cph.se/cdn/shop/products/Loft_Dining_Area_-_Brass_-_1_74bdfed0-6e5e-4325-bcce-5138c50fb400_1728x.jpg?v=1699956086",
+//     "https://paperrooms.co.uk/image/catalog/Petite%20Friture/Vertigo%20200/L0020101_L0020301_vertigo_suspension_small%20large_black_delight%20yoga_hospitality_Den%20Haag_%C2%A9Aico%20Lind%20-%20The%20Loft.jpg"
+//   ];
+
+  const Hero = () => {
+    const images = [
+      hero1,
+      hero2,
+      hero3
+    ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 

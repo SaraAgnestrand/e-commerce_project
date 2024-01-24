@@ -1,19 +1,25 @@
 .category-section {
   display: flex;
   flex-direction: column;
-  /* justify-content: center;  */
-  align-items: center; /* Säkerställer vertikal linjering vid start */
-  padding: 4rem; 
+  align-items: center;
+  padding: 4rem;
 }
+
 .categoryTitle-div {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 40rem; 
+  width: 100%;
+  max-width: 40rem; 
   margin: auto;
-  margin-top: 4rem; 
+  margin-top: 4rem;
   margin-bottom: 4rem;
+}
+
+.categoryImg-div img {
+  max-width: 100%; 
+  height: auto; 
 }
 
 .categoryText-Div {
@@ -23,55 +29,63 @@
 .categoryTitle-div h2 {
   margin-top: 2rem;
   font-weight: 600;
+  font-size: 1.5rem; 
 }
 
 .categoryTitle-div p {
- margin-top: 2rem;
- margin-bottom: 6rem;
- width: 25rem;
- line-height: 2rem;
- font-weight: 400;
- font-size: larger;
-}
-
-.categoryTitle-div img {
-  width: 20rem;
-  height: 20rem;
-  object-fit: cover; /* Detta säkerställer att bilden täcker hela området utan att förvrängas, kan ändras till 'contain' om hela bilden ska vara synlig */
-  
+  margin-top: 2rem;
+  margin-bottom: 2rem; 
+  width: 100%; 
+  line-height: 1.5rem; 
+  font-weight: 400;
+  font-size: 1rem; 
 }
 
 .categoryProductList-grid {
-
-  flex: 70%;
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
-  justify-content: center; 
-  align-items: flex-start;  
-  max-width: 80%; /* Maxbredd för att kontrollera gridens storlek */
+  gap: 1rem; 
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 80%;
   margin: auto;
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem; */
+}
+
+.scrollToTop-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+scrollToTop-wrapper:hover {
+  color: rgb(93, 91, 91); 
+}
+
+@media (max-width: 768px) {
+  .categoryTitle-div {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .scrollToTop-wrapper {
-    width: 100%; /* Tar hela bredden för att centrera ikonen korrekt */
-    display: flex;
-    justify-content: center; /* Centrerar ikonen horisontellt */
-    padding: 2rem; /* Lägg till lite padding ovanför och nedanför ikonen */
+  .categoryTitle-div img {
+    max-width: 80%; 
+    height: auto;
   }
-  
- 
-  /* @media (max-width: 768px) {
-    .categoryProductList-grid {
-      grid-template-columns: repeat(2, 1fr); 
-    }
+
+  .categoryText-Div {
+    margin-left: 0;
   }
-  
-  @media (max-width: 480px) {
-    .categoryProductList-grid {
-      grid-template-columns: 1fr;
-    }
-  } */
+
+  .categoryTitle-div h2 {
+    font-size: 1.2rem; 
+  }
+
+  .categoryTitle-div p {
+    margin-bottom: 1rem; 
+    font-size: 0.9rem; 
+  }
+}
+
+
+

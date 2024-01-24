@@ -2,10 +2,7 @@
     font-size: 3rem; 
     color: white; 
     cursor: pointer; 
-    transition: color 0.4s ease; 
-    /* margin-left: 1.8rem;
-    margin-top: 1.3rem; */
-    /* align-self: center; */
+    transition: color 0.4s ease
 }
 
 .scroll-to-top-icon:hover {

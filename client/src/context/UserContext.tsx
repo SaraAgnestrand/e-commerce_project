@@ -44,7 +44,9 @@ export const UserProvider: React.FC<PropsWithChildren> = ({ children }) => {
       const data = await response.json();
       if (response.status === 201) {
         console.log('Registered user:', data);
+        Cookies.set('user', JSON.stringify(data), { expires: 7 });
         setUser(data);
+        navigate('/');
       } else {
        
         console.error(data);
@@ -69,6 +71,7 @@ export const UserProvider: React.FC<PropsWithChildren> = ({ children }) => {
         console.log('Logged in user:', data);
         Cookies.set('user', JSON.stringify(data), { expires: 7 });
         setUser(data);
+        navigate('/');
       } else {
         console.error('Failed to login:', data.message);
       }

@@ -53,10 +53,11 @@ export const CartProvider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       console.error("Fetch Error:", error);
       return null;
     }
-
   };
+
 // Asynkron funktion 'addToCart' lägger till produkter i varukorgen
 const addToCart = async (productId: string, quantity: number) => {
+  console.log("Product ID:", productId);
   // Anropar 'fetchProduct' för att hämta detaljer om den önskade produkten med hjälp av dess ID
   const product = await fetchProduct(productId);
 
@@ -74,7 +75,7 @@ const addToCart = async (productId: string, quantity: number) => {
       updateCartItems(updatedItems);
       console.log("Varukorg uppdaterad:", items);
     } else {
-      console.log("Produkten kunde inte hämtas.");
+      console.log("ny produkt läggs till i cart")
       // Lägger till en ny produkt i varukorgen om den inte redan finns
       const newCartItem = { ...product, quantity };
       const updatedItems = [...items, newCartItem];

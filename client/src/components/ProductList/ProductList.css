@@ -21,12 +21,13 @@
     justify-content: center;
     align-items: center; 
     flex-direction: row;
+    gap: 1.8rem;
+    margin-left: 5.7rem;
     
 }
 
 
 .actions-container button {
-    margin-top: 2rem;
     background-color: rgb(93, 91, 91); 
     color: white;
     padding: 8px 16px;
@@ -39,9 +40,7 @@
 }
 
 .scroll-to-top-icon {
-    margin-left: 1.8rem;
-    margin-top: 1.3rem; 
-   
+    font-size: large;
 }   
 
 
