@@ -1,0 +1,11 @@
+.confirmation-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 66vh;
+    margin-top: 5rem;
+}
+.confirmation-div h2 {
+    font-weight: 500;
+
+}
