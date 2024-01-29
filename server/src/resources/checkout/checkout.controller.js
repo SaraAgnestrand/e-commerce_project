@@ -1,6 +1,7 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 const fs = require("fs");
 const { ProductModel } = require("../product/product.model");
+const { OrderModel } = require("../order/order.model");
 const CLIENT_URL = "http://localhost:5173"
 
 
@@ -45,6 +46,24 @@ async function checkout(req, res) {
       allow_promotion_codes: true,
     });
 
+    
+    const orderItems = items.map(item => ({
+      product: item._id, 
+      quantity: item.quantity,
+      price: item.price,
+    }));
+    const totalCost = calculateTotalPrice(orderItems);
+
+    const order = new OrderModel({
+      orderNumber: session.id,
+      orderItems: orderItems,
+      totalCost: totalCost,
+      status: 'Pending', 
+      paymentConfirmation: false, 
+      createdAt: new Date(),
+    });
+
+    await order.save(); 
     res.status(200).json({ url: session.url, sessionId: session.id });
   } catch (error) {
     console.log(error);
@@ -52,6 +71,17 @@ async function checkout(req, res) {
   }
 }
 
+function calculateTotalPrice(lineItems) {
+  let totalPrice = 0;
+
+  // Loopa igenom varje lineItem i arrayen
+  lineItems.forEach(item => {
+      // Addera produkten av priset och kvantiteten för varje lineItem till det totala priset
+      totalPrice += item.price * item.quantity;
+  });
+
+  return totalPrice;
+}
 
 async function verify(req, res) {
   try {

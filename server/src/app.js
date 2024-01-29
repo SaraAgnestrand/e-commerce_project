@@ -4,6 +4,7 @@ const productRouter = require("./resources/product/product.router");
 const categoryRouter = require("./resources/category/category.router");
 const checkoutRouter = require("./resources/checkout/checkout.router");
 const userRouter = require("./resources/user/user.router");
+const webhookRouter = require('./resources/webhook/webhook.router');
 const cors = require("cors");
 const path = require('path');
 
@@ -28,21 +29,21 @@ app.use(
 
 app.use(express.json());
 
-
-app.use((err, req, res, next) => {
-    console.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
-    next(err);
-});
-
 //Add routers
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/categories", categoryRouter);
 app.use("/api/checkout", checkoutRouter);
+app.use('/webhook', webhookRouter);
 
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'index.html'));
+});
+
+app.use((err, req, res, next) => {
+  console.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
+  next(err);
 });
 
 

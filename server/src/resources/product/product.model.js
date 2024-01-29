@@ -14,6 +14,7 @@ const ProductSchema = new Schema(
         inStock: { type: Number, required: true, default:0 },
         category: { type: String, required: true },
         deleted: { type: Boolean, required: false, default:false },
+        reserved: { type: Number, required: true, default: 0 },
     }, { versionKey: false });
 
 
@@ -29,7 +30,8 @@ const productJoiSchema = Joi.object({
     img: Joi.string().required(),
     color: Joi.string().required(),
     inStock: Joi.number().required(),
-    category: Joi.string().required()
+    category: Joi.string().required(),
+    reserved: Joi.number().min(0).default(0)
 });
 
 //Exporterar Modellen, Schemat och Joi Schemat

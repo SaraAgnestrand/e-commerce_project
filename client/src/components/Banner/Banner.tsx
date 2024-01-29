@@ -3,7 +3,7 @@ import "./Banner.css"
 const Banner = () => {
   return (
     <div className="banner-section">
-        <p>Få 10% rabatt---Länk till rabattkod</p>
+        <p>Tidsbegränsat erbjudande! Använd kod: LIGHT10 för 10% rabatt på ett helt köp!</p>
     </div>
   )
 }

@@ -5,7 +5,7 @@ const { ProductModel } = require("./product.model");
     console.log("Controller is hit!")
     try{
         const products = await ProductModel.find();
-        console.log("Products from DB:", products);
+        // console.log("Products from DB:", products);
         res.status(200).json(products);
     } catch(error){
         console.log("Error in controller:", error.message);
