@@ -23,10 +23,11 @@ async function handleCheckoutSessionCompleted(sessionId) {
                 console.error(`Product with ID ${item.product} not found`);
             }
         }
+       
         console.log('Order processed and stock updated.');
     } catch (error) {
         console.error("Error handling checkout session completed:", error);
-        // Hantera fel, t.ex. skicka ett felmeddelande som respons
+        
     }
 }
 

@@ -23,7 +23,6 @@
     flex-direction: row;
     gap: 1.8rem;
     margin-left: 5.7rem;
-    
 }
 
 
@@ -36,13 +35,11 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: large;
-
 }
 
 .scroll-to-top-icon {
     font-size: large;
 }   
-
 
 .actions-container button:hover {
     background-color: white;

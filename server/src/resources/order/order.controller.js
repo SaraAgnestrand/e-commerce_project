@@ -1,6 +1,9 @@
 const { OrderModel } = require('./order.model');
 const { ProductModel } = require('../../resources/product/product.model');
 
+
+
+
     const createOrder = async (req, res, next) => {
         try {
             // Reservera produkter utan att minska inStock

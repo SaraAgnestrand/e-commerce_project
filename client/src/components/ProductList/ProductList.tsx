@@ -1,5 +1,5 @@
 import ProductCard from"../ProductCard/ProductCard";
-import { useState, useContext } from "react"; 
+import { useState, useContext, useEffect } from "react"; 
 import { ProductContext } from "../../context/ProductContext"
 // import { UpCircleOutlined } from "@ant-design/icons"; 
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
@@ -18,7 +18,11 @@ const ProductList = () => {
   const loadMoreProducts = () => {
     setCurrentPage(prevPage => prevPage + 1); 
   };
- 
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
     return (
       <div className='ProductList-section'>
           <div className='productList-grid'>

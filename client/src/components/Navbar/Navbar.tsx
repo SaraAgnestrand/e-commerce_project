@@ -48,7 +48,7 @@ const Navbar = () => {
     </Menu>
   );
 
-  const { user, logout } = useContext(UserContext); // använda UserContext
+  const { user, logout } = useContext(UserContext); 
 
   const userMenu = (
     <Menu>
@@ -58,7 +58,7 @@ const Navbar = () => {
     </Menu>
   );
 
-  // Rätta till bug med deprecated 
+  
   return (
     <div className="navbar-section">
       <div className="top-row">
@@ -85,7 +85,7 @@ const Navbar = () => {
             <UserOutlined className='user-icon user-icon-logged-out' />
           </Link>
         )}
-          <div className="cart-icon-container">
+      <div className="cart-icon-container">
             <ShoppingOutlined className="cart-icon" onClick={showCartDrawer} />
             {totalItemsInCart > 0 && (
               <span className="cart-badge">{totalItemsInCart}</span>

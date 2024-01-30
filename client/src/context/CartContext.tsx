@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, PropsWithChildren } from "react";
+import React, { createContext, useState, PropsWithChildren } from "react";
 import Cookies from "js-cookie";
 import { Product } from "./ProductContext"; 
 
@@ -14,6 +14,7 @@ export interface Cart {
   increaseQuantity: (productId: string) => void;
   decreaseQuantity: (productId: string) => void;
   removeFromCart: (productId: string) => void;
+  clearCart: () => void;
 }
 
 
@@ -106,8 +107,13 @@ const removeFromCart = (productId: string) => {
   updateCartItems(newItems);
 };
 
+const clearCart = () => {
+  setItems([])
+};
+
+
 return (
-  <CartContext.Provider value={{ items, addToCart, increaseQuantity, decreaseQuantity, removeFromCart }}>
+  <CartContext.Provider value={{ items, addToCart, increaseQuantity, decreaseQuantity, removeFromCart, clearCart}}>
     {children}
   </CartContext.Provider>
 );

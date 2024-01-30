@@ -2,10 +2,8 @@
     display: flex;
     justify-content: center; 
     align-items: center;
-    height: 100vh; 
-    /* background-color: blueviolet; */
-    /* background: #fff;  */
-    
+    height: 100vh;   
+    margin-top: ;  
 }
 
 .img-container{
@@ -14,11 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40rem;
-    /* min-height: 300px; */
-    /* background-color: aquamarine; */
-
-    
+    height: 40rem;    
 }
 
 .img-container img {
@@ -28,8 +22,6 @@
     align-content: center;
     width: 80%;
     height: 80%;
-    /* width: 25rem;
-    height: 30rem; */
     aspect-ratio: 3/2;
     object-fit: contain;   
    
@@ -49,17 +41,17 @@
 .arrows {
     font-size: 2rem;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.5); /* Vit halvgenomskinlig bakgrund */
-    border-radius: 50%; /* Gör bakgrunden cirkulär */
+    background-color: rgba(255, 255, 255, 0.5); 
+    border-radius: 50%; 
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px; /* Eller den storlek som passar för dina ikoner */
+    width: 38px; 
     height: 38px;
     transition: background-color 0.3s ease;
 }
 .arrows:hover {
-    background-color: rgba(255, 255, 255, 0.8); /* Gör bakgrunden mer synlig vid hovring */
+    background-color: rgba(255, 255, 255, 0.8); 
 }
 
 .product-info {
@@ -71,13 +63,12 @@
     align-items: start;  
     padding: 20px;  
     margin-right: 2rem;
-    /* background-color: blue; */
+    
 }
 
 .product-info h3 {
     font-weight: 500;
     font-size: 22px;
-
 }
 
 .product-color {
@@ -87,7 +78,6 @@
 .product-price {
     font-weight: 500;
 }
-
 
 .buy-button {
     
@@ -109,11 +99,41 @@
 
 @media (max-width: 768px) {
     .img-container img {
-        max-height: 50%;
-        max-width: 50%;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    .arrow-icons {
+        width: 50%;
+    
+    }
+
+}
+
+@media (max-width: 835px){
+    .productDetail-section {
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center;
+        height: auto; 
+        padding: 20px; 
+    }
+
+    .img-container, .product-info {
+        width: 100%; 
+        max-width: 100%; 
+        height: auto; 
+    }
+
+    .img-container {
+        margin-bottom: 20px;
+    }
+
+    .product-info {
+        width: 95%;
+        padding-left: 4.1rem;
     }
 }
 
 
-
-
+//
