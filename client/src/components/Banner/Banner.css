@@ -7,10 +7,9 @@
     color: #ffffff;
     background-color: #252424;
     width: 100%;
-    font-size: larger;
-    font-weight: 500;
+    font-size: medium;
+    font-weight: 400;
     letter-spacing: 1.2px;
-    
     
 }
 
@@ -19,6 +18,18 @@
     .banner-section p {
         margin-left: 2rem;
         margin-right: 2rem;
+        
+    }
+}
+
+@media (max-width: 390px) {
+
+    .banner-section {
+        width: 100%;
+        margin: 0;
+    }
+
+    .banner-section p {
         font-size: smaller;
         
     }

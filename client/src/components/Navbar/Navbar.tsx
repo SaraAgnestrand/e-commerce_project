@@ -62,7 +62,7 @@ const Navbar = () => {
   return (
     <div className="navbar-section">
       <div className="top-row">
-        <Dropdown overlay={categoryMenu} onVisibleChange=   {setIsCategoriesOpen} visible={isCategoriesOpen}>
+        <Dropdown className="menu-icon"overlay={categoryMenu} onVisibleChange=   {setIsCategoriesOpen} visible={isCategoriesOpen}>
         <MenuOutlined className="menu-icon" onClick={handleCategoryClick} />
         </Dropdown>
         <Link to="/"> <h2 className="logo">LightGallery</h2></Link>
