@@ -1,5 +1,4 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
-const fs = require("fs");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const { ProductModel } = require("../product/product.model");
 const { OrderModel } = require("../order/order.model");
 const CLIENT_URL = "http://localhost:5173"
@@ -12,7 +11,7 @@ async function fetchProductDetails(productId) {
     if (!product) {
       throw new Error(`Product with ID ${productId} not found`);
     }
-    return product; // Returnera hela produktobjektet
+    return product; 
   } catch (error) {
     console.error("Error fetching product details:", error);
     throw error;
@@ -27,7 +26,7 @@ async function checkout(req, res) {
     // Hämta pris-ID och annan information från MongoDB-databas baserat på produkt-ID
     const lineItems = await Promise.all(
       items.map(async (item) => {
-        const product = await fetchProductDetails(item._id); // Hämta hela produktobjektet
+        const product = await fetchProductDetails(item._id); 
         if (!product.price_id) {
           throw new Error(`No Stripe price ID found for product ID ${item._id}`);
         }
@@ -52,6 +51,7 @@ async function checkout(req, res) {
       quantity: item.quantity,
       price: item.price,
     }));
+
     const totalCost = calculateTotalPrice(orderItems);
 
     const order = new OrderModel({
