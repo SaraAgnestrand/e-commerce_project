@@ -1,18 +1,17 @@
 .footer-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(239, 216, 188);
-    gap: 10rem;
-    height: 16rem;  
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(239, 216, 188);
+  gap: 10rem;
+  height: 16rem;
 }
 
 @media (max-width: 768px) {
-    .footer-section {
-        flex-direction: column;
-        gap: 1rem; 
-        text-align: center;    
-        height: 38rem;
-    }
+  .footer-section {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    height: 38rem;
+  }
 }

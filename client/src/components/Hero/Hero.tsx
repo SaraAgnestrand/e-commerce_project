@@ -5,7 +5,6 @@ import hero3 from "../../assets/hero3.png"
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import './Hero.css';
 
-
   const Hero = () => {
     const images = [
       hero1,
@@ -24,7 +23,6 @@ import './Hero.css';
   const goToNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
-
 
   return (
     <div className='hero-section'>

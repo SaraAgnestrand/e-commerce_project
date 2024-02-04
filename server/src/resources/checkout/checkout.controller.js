@@ -11,7 +11,7 @@ async function fetchProductDetails(productId) {
     if (!product) {
       throw new Error(`Product with ID ${productId} not found`);
     }
-    return product; 
+    return product;
   } catch (error) {
     console.error("Error fetching product details:", error);
     throw error;
@@ -22,16 +22,15 @@ async function checkout(req, res) {
   try {
     const items = req.body;
     console.log("Request body:", items);
-    
-    // Hämta pris-ID och annan information från MongoDB-databas baserat på produkt-ID
+
     const lineItems = await Promise.all(
       items.map(async (item) => {
-        const product = await fetchProductDetails(item._id); 
+        const product = await fetchProductDetails(item._id);
         if (!product.price_id) {
           throw new Error(`No Stripe price ID found for product ID ${item._id}`);
         }
         return {
-          price: product.price_id, 
+          price: product.price_id,
           quantity: item.quantity,
         };
       })
@@ -45,9 +44,9 @@ async function checkout(req, res) {
       allow_promotion_codes: true,
     });
 
-    
+
     const orderItems = items.map(item => ({
-      product: item._id, 
+      product: item._id,
       quantity: item.quantity,
       price: item.price,
     }));
@@ -58,12 +57,12 @@ async function checkout(req, res) {
       orderNumber: session.id,
       orderItems: orderItems,
       totalCost: totalCost,
-      status: 'Pending', 
-      paymentConfirmation: false, 
+      status: 'Pending',
+      paymentConfirmation: false,
       createdAt: new Date(),
     });
 
-    await order.save(); 
+    await order.save();
     res.status(200).json({ url: session.url, sessionId: session.id });
   } catch (error) {
     console.log(error);
@@ -74,12 +73,9 @@ async function checkout(req, res) {
 function calculateTotalPrice(lineItems) {
   let totalPrice = 0;
 
-  // Loopa igenom varje lineItem i arrayen
   lineItems.forEach(item => {
-      // Addera produkten av priset och kvantiteten för varje lineItem till det totala priset
-      totalPrice += item.price * item.quantity;
+    totalPrice += item.price * item.quantity;
   });
-
   return totalPrice;
 }
 
@@ -89,9 +85,6 @@ async function verify(req, res) {
     if (session.payment_status !== "paid") {
       return res.status(400).json({ verified: false });
     }
-
-    // Lägg till hantera MongoDB-databas och spara ordern.
-
     res.status(200).json({ verified: true });
   } catch (error) {
     console.log(error.message);

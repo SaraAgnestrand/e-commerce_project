@@ -1,81 +1,77 @@
 .login-container {
-    background-color: white;
-    padding: 20px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-    width: 25rem;
-    height: 60vh; 
-    margin: auto;
-    margin-top: 10rem;
-    font-weight: 500;
+  background-color: white;
+  padding: 20px;
+  width: 25rem;
+  height: 60vh;
+  margin: auto;
+  margin-top: 10rem;
+  font-weight: 500;
 }
 
 .login-form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .login-form h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: 600;
-    columns: #252424;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+  columns: #252424;
 }
 
 .form-control {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .form-control label {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .form-control input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    box-sizing: border-box; 
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
 }
 
 input:focus {
-    outline: none; 
-    box-shadow: 0 0 2px gray;
+  outline: none;
+  box-shadow: 0 0 2px gray;
 }
 
-.login-button, .createAcount-button {
-    background-color:rgb(93, 91, 91);
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: large;
+.login-button,
+.createAcount-button {
+  background-color: rgb(93, 91, 91);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: large;
 }
 
 .createAcount-button {
-    display: inline-block; /* Lägg till detta för att göra länken bete sig mer som en knapp */
-    width: 100%; /* Lägg till detta om du vill att länken ska fylla sin container */
-    margin-top: 1rem;
-    background-color:rgb(93, 91, 91);
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: large;
-    text-align: center;
-    text-decoration: none;
-
-}
-.login-button:hover, .createAcount-button:hover {
-    background-color: white;
-    color: rgb(93, 91, 91);
-    border: 1px solid rgb(93, 91, 91);
+  display: inline-block;
+  width: 100%;
+  margin-top: 1rem;
+  background-color: rgb(93, 91, 91);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: large;
+  text-align: center;
+  text-decoration: none;
 }
 
-
-
-
-
+.login-button:hover,
+.createAcount-button:hover {
+  background-color: white;
+  color: rgb(93, 91, 91);
+  border: 1px solid rgb(93, 91, 91);
+}

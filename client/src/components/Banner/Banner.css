@@ -1,36 +1,31 @@
 .banner-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 3rem;
-    color: #ffffff;
-    background-color: #252424;
-    width: 100%;
-    font-size: medium;
-    font-weight: 400;
-    letter-spacing: 1.2px;
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 3rem;
+  color: #ffffff;
+  background-color: #252424;
+  width: 100%;
+  font-size: medium;
+  font-weight: 400;
+  letter-spacing: 1.2px;
 }
 
-@media (max-width: 890px) {
-
-    .banner-section p {
-        margin-left: 2rem;
-        margin-right: 2rem;
-        
-    }
+@media (max-width: 630px) {
+  .banner-section p {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }
 
 @media (max-width: 390px) {
+  .banner-section {
+    width: 100%;
+    margin: 0;
+  }
 
-    .banner-section {
-        width: 100%;
-        margin: 0;
-    }
-
-    .banner-section p {
-        font-size: smaller;
-        
-    }
+  .banner-section p {
+    font-size: smaller;
+  }
 }

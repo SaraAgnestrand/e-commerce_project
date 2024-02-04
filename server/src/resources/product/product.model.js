@@ -1,27 +1,24 @@
 const { model, Schema, models, Types } = require("mongoose");
 const Joi = require("joi");
 
-//Definierar produktSchemat
+
 const ProductSchema = new Schema(
     {
         _id: { type: Types.ObjectId, auto: true },
-        title: { type:String, required:true },
+        title: { type: String, required: true },
         description: { type: String, required: true },
         price: { type: Number, required: true },
-        price_id:{type: String, required:true },
+        price_id: { type: String, required: true },
         img: { type: [String], required: true },
-        color: {type: String, required: true },
-        inStock: { type: Number, required: true, default:0 },
+        color: { type: String, required: true },
+        inStock: { type: Number, required: true, default: 0 },
         category: { type: String, required: true },
-        deleted: { type: Boolean, required: false, default:false },
+        deleted: { type: Boolean, required: false, default: false },
         reserved: { type: Number, required: true, default: 0 },
     }, { versionKey: false });
 
+const ProductModel = models.product || model("product", ProductSchema);
 
-//Skapar eller hämtar modellen
-const ProductModel = models.product || model("product", ProductSchema); 
-
-//Definierar Joi Schemat för validering
 const productJoiSchema = Joi.object({
     title: Joi.string().required(),
     description: Joi.string().required(),
@@ -34,5 +31,4 @@ const productJoiSchema = Joi.object({
     reserved: Joi.number().min(0).default(0)
 });
 
-//Exporterar Modellen, Schemat och Joi Schemat
 module.exports = { ProductModel, ProductSchema, productJoiSchema };

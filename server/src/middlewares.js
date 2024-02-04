@@ -1,4 +1,4 @@
-function validate (schema) {
+function validate(schema) {
     return function (req, res, next) {
         const { error } = schema.validate(req.body);
         if (!error) return next();

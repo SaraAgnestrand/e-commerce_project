@@ -1,48 +1,47 @@
 .ProductList-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    padding: 4rem; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
 }
 
 .productList-grid {
-    flex: 70%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
-    justify-content: center; 
-    align-items: flex-start;  
-    max-width: 80%; 
-    margin: auto;
+  flex: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 80%;
+  margin: auto;
 }
 
 .actions-container {
-    display: flex; 
-    justify-content: center;
-    align-items: center; 
-    flex-direction: row;
-    gap: 1.8rem;
-    margin-left: 5.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1.8rem;
+  margin-left: 5.7rem;
 }
 
-
 .actions-container button {
-    background-color: rgb(93, 91, 91); 
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: large;
+  background-color: rgb(93, 91, 91);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: large;
 }
 
 .scroll-to-top-icon {
-    font-size: 2rem;
-}   
+  font-size: 2rem;
+}
 
 .actions-container button:hover {
-    background-color: white;
-    color: rgb(93, 91, 91);
-    border: 1px solid rgb(93, 91, 91);
+  background-color: white;
+  color: rgb(93, 91, 91);
+  border: 1px solid rgb(93, 91, 91);
 }

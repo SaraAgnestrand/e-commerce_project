@@ -1,56 +1,65 @@
-import { useParams } from 'react-router-dom';
-import { useCategories } from '../../context/CategoryContext';
-import { useContext } from "react"; 
+import { useParams } from "react-router-dom";
+import { useCategories } from "../../context/CategoryContext";
+import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext";
-import ScrollToTop from '../ScrollToTop/ScrollToTop';
-import ProductCard from"../ProductCard/ProductCard";
-import './CategoryPage.css';
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
+import ProductCard from "../ProductCard/ProductCard";
+import "./CategoryPage.css";
 
 const CategoryPage = () => {
   const { categoryId } = useParams();
   const { categories } = useCategories();
   const { products } = useContext(ProductContext);
 
+  //I didn't include these images in my database categories. I added the images at a later stage and thought it was easier this way then.
   const categoryImages: { [key: string]: string } = {
-    'Bordslampor': 'https://royaldesign.se/image/1/herstal-vienda-bordslampa-2?w=1920&quality=80',
-    'Taklampor': 'https://royaldesign.se/image/1/house-doctor-volumen-lampa-6?w=1600&quality=80',
-    'Golvlampor': 'https://royaldesign.se/image/1/by-rydens-bazar-golvlampa-h147-cm-7?w=1920&quality=80',
-    'Vägglampor': 'https://royaldesign.se/image/1/fritz-hansen-caravaggio-read-vagglampa-14-cm-1?w=1920&quality=80'
+    Bordslampor:
+      "https://royaldesign.se/image/1/herstal-vienda-bordslampa-2?w=1920&quality=80",
+    Taklampor:
+      "https://royaldesign.se/image/1/house-doctor-volumen-lampa-6?w=1600&quality=80",
+    Golvlampor:
+      "https://royaldesign.se/image/1/by-rydens-bazar-golvlampa-h147-cm-7?w=1920&quality=80",
+    Vägglampor:
+      "https://royaldesign.se/image/1/fritz-hansen-caravaggio-read-vagglampa-14-cm-1?w=1920&quality=80",
   };
 
-  const category = categories.find(category => category._id === categoryId);
+  const category = categories.find((category) => category._id === categoryId);
 
-  const categoryName = category ? category.title : '';
-  const categoryProducts = products.filter(product => product.category === categoryName);
-  const categoryImage = categoryImages[categoryName]; // Hämtar rätt bild baserat på kategorinamnet
+  const categoryName = category ? category.title : "";
+  const categoryProducts = products.filter(
+    (product) => product.category === categoryName
+  );
+  const categoryImage = categoryImages[categoryName];
 
   if (!category) {
     return <div>Kategorin hittades inte</div>;
   }
 
   return (
-    <div className='category-section'>
-        <div className='categoryTitle-div'>
-          <div className="categoryImg-div">
-            <img className="Category-img" src={categoryImage} alt={`${categoryName} kategoribild`} />
-          </div>
-          <div className="categoryText-Div">
-            <h2>{category.title}</h2>
-            <p>{category.description}</p>
-          </div>
+    <div className="category-section">
+      <div className="categoryTitle-div">
+        <div className="categoryImg-div">
+          <img
+            className="Category-img"
+            src={categoryImage}
+            alt={`${categoryName} kategoribild`}
+          />
         </div>
-        <div className='categoryProductList-grid'>
-          {categoryProducts.map((product) => (
-            <ProductCard key={product._id} product={product} />
-          ))}
+        <div className="categoryText-Div">
+          <h2>{category.title}</h2>
+          <p>{category.description}</p>
         </div>
-        <div className='scrollToTop-wrapper'>
-      <ScrollToTop />
-    </div>
+      </div>
+      <div className="categoryProductList-grid">
+        {categoryProducts.map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))}
+      </div>
+      <div className="scrollToTop-wrapper">
+        <ScrollToTop />
+      </div>
     </div>
   );
 };
 
 export default CategoryPage;
-
-

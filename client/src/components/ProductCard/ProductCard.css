@@ -1,44 +1,41 @@
-
-
 .productCard-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2rem;
-    border: 0.5px solid #ddd;
-    padding: 1.5rem; 
-    width: 100%; 
-    height: 28rem;
-    max-width: 300px; 
-    box-shadow: 0 2px 4px rgba(3, 3, 3, 0.1); 
-    background-color: #fff;
-    cursor: pointer;
-    text-align: center; 
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  border: 0.5px solid #ddd;
+  padding: 1.5rem;
+  width: 100%;
+  height: 28rem;
+  max-width: 300px;
+  box-shadow: 0 2px 4px rgba(3, 3, 3, 0.1);
+  background-color: #fff;
+  cursor: pointer;
+  text-align: center;
+  justify-content: space-between;
 }
 
 .productCard-info img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%; 
-    max-height: 200px;
-    width: auto; 
-    height: auto; 
-    object-fit: cover;
-    margin: 1rem 0 1rem 0; 
-    /* position: relative; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  margin: 1rem 0 1rem 0;
 }
 
 .productCard-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    flex-grow: 1;
-    justify-content: end;
-    margin-bottom: 3rem;
-    line-height: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
+  justify-content: end;
+  margin-bottom: 3rem;
+  line-height: 1.8rem;
 }
 
 .productCard-text h3 {
@@ -47,9 +44,5 @@
 }
 
 .price {
-    font-size: 20px;
+  font-size: 20px;
 }
-
-
-
-
