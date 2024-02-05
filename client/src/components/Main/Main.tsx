@@ -5,7 +5,7 @@ import Register from "../Register/Register";
 import Confirmation from "../Confirmation/Confirmation";
 import CategoryPage from "../CategoryPage/CategoryPage";
 import { Routes, Route } from "react-router-dom";
-import "./Main.css";
+
 
 const Main: React.FC = () => {
   return (
